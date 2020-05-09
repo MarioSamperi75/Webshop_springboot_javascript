@@ -1,7 +1,8 @@
-package com.example.webshop.persistence;/*package com.webshop.shop.persistence;
+package com.example.webshop.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries({
@@ -20,19 +21,19 @@ public class Orders implements Serializable {
     private long id;
     @ManyToOne
     private User user;
-    @JoinTable(name = "product_in_order",
-            joinColumns = @JoinColumn(name = "orders_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER) //La till
-    private List<Product> productList;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy="orders")
+    private List<Order_Item> order_ItemList = new ArrayList<>();
+
+
     //-------------------------------------
 
     public Orders() {
     }
 
-    public Orders(User user, List<Product> productList) {
+    public Orders(User user, List<Order_Item> order_itemList) {
         this.user = user;
-        this.productList = productList;
+        this.order_ItemList = order_itemList;
     }
 
 
@@ -44,11 +45,11 @@ public class Orders implements Serializable {
         this.user = user;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<Order_Item> getOrder_ItemList() {
+        return order_ItemList;
     }
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setOrder_ItemList(List<Order_Item> order_ItemList) {
+        this.order_ItemList = order_ItemList;
     }
-}*/
+}

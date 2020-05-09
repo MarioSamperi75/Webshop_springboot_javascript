@@ -2,6 +2,7 @@ package com.example.webshop.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "PRODUCT")
@@ -16,8 +17,8 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private double price;
-    //@ManyToMany(cascade = CascadeType.PERSIST, mappedBy="productList")
-    //private List<Orders> ordersList;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy="product")
+    private List<Order_Item> order_itemList;
 //-----------------------------------------
 
     public Product() {
