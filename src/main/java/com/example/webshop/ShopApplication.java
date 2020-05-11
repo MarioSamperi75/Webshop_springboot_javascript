@@ -1,6 +1,9 @@
 package com.example.webshop;
 
-import com.example.webshop.persistence.*;
+import com.example.webshop.domain.*;
+import com.example.webshop.repository.OrderRepository;
+import com.example.webshop.repository.ProductRepository;
+import com.example.webshop.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

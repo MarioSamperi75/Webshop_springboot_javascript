@@ -1,4 +1,4 @@
-package com.example.webshop.persistence;
+package com.example.webshop.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

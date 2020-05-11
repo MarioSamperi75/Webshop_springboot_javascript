@@ -1,8 +1,7 @@
-package com.example.webshop.persistence;
+package com.example.webshop.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "ORDER_ITEM")
