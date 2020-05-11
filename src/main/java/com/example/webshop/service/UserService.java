@@ -1,6 +1,4 @@
-/*package com.example.webshop.service;
-
-package com.example.queries;
+package com.example.webshop.service;
 
 import com.example.webshop.domain.User;
 import com.example.webshop.repository.UserRepository;
@@ -22,9 +20,9 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    void search() {
-        List<User> result = userRepository.findByUsername("Customer");
-        log.info("findByCity " + result);
+    public void search() {
+        List<User> result = userRepository.findByUsername("customer");
+        log.info("findByUsername " + result);
         /*result = addressRepository.findByStreetname("Södervägen");
         log.info("findByStreet" + result);
         result = addressRepository.findByStreetnameAndCity("Solna","Södervägen");
@@ -39,5 +37,5 @@ public class UserService {
         log.info("findByCityContaining" + result);
         result = addressRepository.bothSame("Halmstad");
         log.info("bothSame" + result);*/
-//    }
-//}
+    }
+}
