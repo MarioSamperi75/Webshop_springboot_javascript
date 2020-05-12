@@ -35,7 +35,10 @@ public class UserController {
         return  userService.findByUsername(username);
 
     }
+    @RequestMapping(value = "/users")
+    public List<User> findAllUsers() {
+        return  userService.findAllUsers();
 
-
+    }
 
 }

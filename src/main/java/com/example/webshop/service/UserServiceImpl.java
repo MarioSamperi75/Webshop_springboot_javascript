@@ -28,6 +28,8 @@ public class UserServiceImpl implements UserService{
         return  result;
     }
 
+    public List<User> findAllUsers(){ return userRepository.findAll(); }
+
      /*result = addressRepository.findByStreetname("Södervägen");
         log.info("findByStreet" + result);
         result = addressRepository.findByStreetnameAndCity("Solna","Södervägen");
