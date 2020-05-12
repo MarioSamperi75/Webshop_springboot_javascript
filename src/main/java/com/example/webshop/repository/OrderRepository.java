@@ -9,7 +9,6 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Orders, Long> {
-    //List<User> findAllByUser();
-    //fylla det!!!!
+
 
 }

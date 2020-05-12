@@ -4,7 +4,8 @@ import com.example.webshop.domain.*;
 import com.example.webshop.repository.OrderRepository;
 import com.example.webshop.repository.ProductRepository;
 import com.example.webshop.repository.UserRepository;
-import com.example.webshop.service.UserService;
+import com.example.webshop.service.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,8 +23,12 @@ public class ShopApplication {
 
     }
 
+    @Autowired
+    private UserRepository userRepository;
+
+
     @Bean
-    public CommandLineRunner setUp(UserRepository userRepository, ProductRepository productRepository, OrderRepository orderRepository, UserService userService){
+    public CommandLineRunner setUp(UserRepository userRepository, ProductRepository productRepository, OrderRepository orderRepository, UserServiceImpl userService){
         return  (args -> {
             User user1 = new User ("Göran","Customersson","Customergatan 9","customer", "customer123", "goran@mail.com", Role.CUSTOMER, 0);
             User user2 = new User("Fredrik","Premiumsson","Preiumvägen 7","premium", "premium123", "fredrik@mail.com", Role.PREMIUM_CUSTOMER, 500);
@@ -77,7 +82,7 @@ public class ShopApplication {
             orderRepository.save( orders2);
 
 
-            userService.search();
+            userService.findByUsername("customer");
 
         });
 
