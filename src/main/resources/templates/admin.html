@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webshop</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="script/admin.js"></script>
+</head>
+
+<!--
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Admin</title>
+</h:head>
+<h:body>
+    <h:outputStylesheet library="css" name="style.css" />
+    <h1>ADMINSIDA</h1>
+    <h:form>
+        <h2> Användare </h2>
+        <h:dataTable styleClass="cart-tabell" value="#{adminController.getUsers()}" var="user">
+            <h:column>
+                <h:commandButton id="customer" value="#{user.username}" action="#{adminController.getUserInfo(user.username)}"/>
+            </h:column>
+        </h:dataTable>
+
+        <br/>
+        <h2> Användaruppgifter </h2>
+        <br/>
+        <h:outputLabel value="Namn:  #{adminController.getSelectedFirstName()}"/>
+        <br/>
+        <h:outputLabel value="Efternamn:  #{adminController.getSelectedLastName()}"/>
+        <br/>
+        <h:outputLabel value="Adress:  #{adminController.getSelectedAddress()}"/>
+        <br/>
+        <h:outputLabel value="Användarnamn:  #{adminController.getSelectedUserUsername()}"/>
+        <br/>
+        <h:outputLabel value="Lösenord: #{adminController.getSelectedUserPassword()}"/>
+        <br/>
+        <h:outputLabel value="E-mail:  #{adminController.getSelectedEmail()}"/>
+        <br/>
+        <h:outputLabel value="Roll: #{adminController.getSelectedUserRole()}"/>
+
+        <br/> <br/>
+        <h2> Beställningar </h2>
+        <h:dataTable styleClass="cart-tabell" value="#{adminController.getOrders()}" var="orders" rendered="#{adminController.getRenderOrders()}">
+            <h:column>
+                <h:commandButton id="order" value="Beställning #{adminController.getOrderCounter()}" action ="#{adminController.setProducts(orders.getProductList())}"/>
+            </h:column>
+        </h:dataTable>
+
+        <br/>
+        <h2> Beställningsinnehåll </h2>
+        <h:dataTable styleClass="cart-tabell" value="#{adminController.getProducts()}" var="product" rendered="#{adminController.getRenderOrders()}">
+            <h:column>
+                <h:outputText value = "#{product.getName()}"/>
+            </h:column>
+            <h:column>
+                <h:outputText value = "#{product.getPrice()} kr"/>
+            </h:column>
+        </h:dataTable>
+        <br/>
+        <h:commandButton value = "Logga ut" action="#{adminController.logout()}"/>
+    </h:form>
+</h:body>
+</html>
+-->

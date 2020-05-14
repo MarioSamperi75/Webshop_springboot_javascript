@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webshop</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="script/order.js"></script>
+</head>
+<!--
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>webshop_G11</title>
+</h:head>
+<h:body>
+    <h:outputStylesheet library="css" name="style.css" />
+
+    <h:form>
+        <h1>Din beställning har bekräftats!</h1>
+        <div>
+        <h2>Innehåll:</h2>
+        <h:dataTable styleClass="cart-tabell" value="#{customerController.getConfirmedOrder()}" var="product">
+            <h:column styleClass = "col-name">
+                <h:outputText id="name" value="#{product.name}"></h:outputText>
+            </h:column>
+
+            <h:column styleClass = "col-pass">
+                <h:outputText id="pris" value="#{product.price} kr"></h:outputText>
+            </h:column>
+        </h:dataTable>
+        <br/>
+            <h:outputLabel value="Summa: #{customerController.getOrderTotal()} kr"/>
+            <h:outputLabel value=" (Premium discount included!)" rendered="#{customerController.getRenderDiscountMsg()}"/>
+            <br/> <br/>
+
+            <h:commandButton value = "Tillbaka till shoppen!" action = "#{loginAndRegisterController.login()}">
+                <f:actionListener binding="#{customerController.clear()}"/>
+            </h:commandButton>
+
+            <br/>
+        </div>
+    </h:form>
+</h:body>
+</html>
+-->
