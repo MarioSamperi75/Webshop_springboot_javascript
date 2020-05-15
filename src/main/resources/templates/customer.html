@@ -5,13 +5,13 @@
     <title>Webshop_customer</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="script/customer.js"></script>
+    <script src="../static/script/customer.js"></script>
 </head>
 
 
 <body>
     <h1>KUNDSIDA</h1>
-    <div>
+
         <div class="search-block">
 
             <div>
@@ -22,9 +22,9 @@
 
                 <br/> <br/>
                 <!-- ************SEARCH*************-->
-                <label class="product-title"/>  <!--att koppla med product-->
+                <label class="product-title-s"/>  <!--att koppla med product-->
                 <br/> <br/>
-                <label class="product-description"/> <!--att koppla med description-->
+                <label class="product-description-s"/> <!--att koppla med description-->
                 <input type="submit" value="Lägg i kundvagn"/>
 
                 <br/>  <br/>
@@ -48,31 +48,11 @@
 
     </div>
 
+    <!-- ************PRODUCT*************-->
+    <div class="product-block">
 
-    <div>
-        <div class="product-block">
-
-            <label class="product-title"/> <!--koppla med product title 0-->
-            <br/> <br/>
-            <label class="product-description"/> <!-- koppla med product description 0 -->
-            <br/> <br/>
-            <input type="text" value="Lägg i kundvagnen"/><!-- att koppla med rätta event-->
-            <br/> <br/> <br/>
-
-            <label class="product-title"/> <!--koppla med product title 1-->
-            <br/> <br/>
-            <label class="product-description"/> <!-- koppla med product description 1 -->
-            <br/> <br/>
-            <input type="text" value="Lägg i kundvagnen"/><!-- att koppla med rätta event-->
-            <br/> <br/> <br/>
-
-            <label class="product-title"/> <!-- koppla med product title 2 -->
-            <br/> <br/>
-            <label class="product-description"/> <!-- koppla med product description 2 -->
-            <br/> <br/>
-            <input type="text" value="Lägg i kundvagnen"/><!-- att koppla med rätta event-->
-            <br/> <br/> <br/>
-        </div>
+    </div>
+    <br/> <br/> <br/>
 
 
         <!--*************CART************-->
@@ -96,7 +76,6 @@
             <input type="submit" value = "Köp"/><!-- att koppla med rätta event-->
             <input type="submit" value = "Töm varukorg"/> <!-- att koppla med rätta event-->
         </div>
-    </div>
     </body>
 
 </html>

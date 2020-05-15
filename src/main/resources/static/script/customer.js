@@ -1,18 +1,23 @@
+
 function loadProducts() {
     $.ajax({
-        url: "http://localhost:8080/multiplications/random"
+        url: "http://localhost:8080/products"
     }).then(function(data) {
-        // Cleans the form
-        $("#attempt-form").find( "input[name='result-attempt']" ).val("");
-        $("#attempt-form").find( "input[name='user-alias']" ).val("");
-        // Gets a random challenge from API and loads the data in the HTML
-        $('.multiplication-a').empty().append(data.factorA);
-        $('.multiplication-b').empty().append(data.factorB);
+        $('.product-block').empty()
+        for(let i = 0; i< data.length; i++) {
+            $('.product-block').append(
+                "<div class='product'>" +
+                data[i].name + "<br>" +
+                data[i].description + "<br>" +
+                data[i].price + " kr" + "<br>" +
+                "<input class='add' type='submit' value='Lägg i kundvagnen'/>" + "<br>" + "<br>" +
+                "</div>");
+        }
+        console.log(data);
     });
 }
 
 $(document).ready(function() {
-
     loadProducts();
 
 });
