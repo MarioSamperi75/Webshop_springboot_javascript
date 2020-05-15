@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+
 public class UserController {
 
     private UserServiceImpl userService;
@@ -22,7 +23,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/user")
     public String index()
     {return "hello User";}
 

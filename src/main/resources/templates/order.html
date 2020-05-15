@@ -3,43 +3,31 @@
 <html>
 <head>
     <title>Webshop</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="script/order.js"></script>
 </head>
-<!--
-<h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>webshop_G11</title>
-</h:head>
-<h:body>
-    <h:outputStylesheet library="css" name="style.css" />
 
-    <h:form>
+<body>
+
+
+    <div>
         <h1>Din beställning har bekräftats!</h1>
         <div>
         <h2>Innehåll:</h2>
-        <h:dataTable styleClass="cart-tabell" value="#{customerController.getConfirmedOrder()}" var="product">
-            <h:column styleClass = "col-name">
-                <h:outputText id="name" value="#{product.name}"></h:outputText>
-            </h:column>
-
-            <h:column styleClass = "col-pass">
-                <h:outputText id="pris" value="#{product.price} kr"></h:outputText>
-            </h:column>
-        </h:dataTable>
-        <br/>
-            <h:outputLabel value="Summa: #{customerController.getOrderTotal()} kr"/>
-            <h:outputLabel value=" (Premium discount included!)" rendered="#{customerController.getRenderDiscountMsg()}"/>
-            <br/> <br/>
-
-            <h:commandButton value = "Tillbaka till shoppen!" action = "#{loginAndRegisterController.login()}">
-                <f:actionListener binding="#{customerController.clear()}"/>
-            </h:commandButton>
-
-            <br/>
+            <table class="cart-tabell">
+                <tbody>
+                <tr>
+                    <!-- 2 <td></td> att fylla genom js och styla med css :1name 2price-->
+                </tr>
+                </tbody>
+            </table>
+        <br/><br/>
+            <label value="Total:"/> <label/> <!-- kopplat med rätta event-->
+            <label value=" (Premium rabatt inkluderad!)" rendered="false"/> <!-- vad blir det?-->
+            <br><br>
+            <input type="submit" value = "Tillbaka till shoppen!"/> <!-- kopplat med rätta event-->
         </div>
-    </h:form>
-</h:body>
+    </div>
+</body>
 </html>
--->

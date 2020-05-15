@@ -25,6 +25,8 @@ public class ShopApplication {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
 
     @Bean
