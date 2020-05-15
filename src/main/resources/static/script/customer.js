@@ -4,6 +4,7 @@ function loadProducts() {
         url: "http://localhost:8080/products"
     }).then(function(data) {
         $('.product-block').empty()
+        $('.product-block').append("<h1>Produkter</h1>");
         for(let i = 0; i< data.length; i++) {
             $('.product-block').append(
                 "<div class='product'>" +

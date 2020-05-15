@@ -11,71 +11,70 @@
 
 <body>
     <h1>KUNDSIDA</h1>
+    <!-- ************SEARCH*************-->
+    <div class="search-block">
 
-        <div class="search-block">
+        <div>
+            <br/>
+            <label value="Sök vara: "/>
+            <input type="text"/>
+            <input type="submit" value="Sök"/>
 
-            <div>
-                <br/>
-                <label value="Sök vara: "/>
-                <input type="text"/>
-                <input type="submit" value="Sök"/>
+            <br/> <br/>
+            <label class="product-title-s"/>  <!--att koppla med product-->
+            <br/> <br/>
+            <label class="product-description-s"/> <!--att koppla med description-->
+            <input type="submit" value="Lägg i kundvagn"/>
 
-                <br/> <br/>
-                <!-- ************SEARCH*************-->
-                <label class="product-title-s"/>  <!--att koppla med product-->
-                <br/> <br/>
-                <label class="product-description-s"/> <!--att koppla med description-->
-                <input type="submit" value="Lägg i kundvagn"/>
-
-                <br/>  <br/>
-            </div>
+            <br/>  <br/>
         </div>
-
-        <!-- ************USER*************-->
-        <div class="logout-block">
-            <div>
-                <label value="Användarnamn:"/> <label/> <!--koppla med användarnamn-->
-                <br/>
-                <label value="Användarroll"/> <label/> <!--koppla med användarnamn-->
-                <br/>
-                <input type="submit" value= "Logga ut"/>
-            </div>
-        </div>
-
-        <br/> <br/>
-        <hr/>
-        <br/> <br/>
-
     </div>
 
-    <!-- ************PRODUCT*************-->
+    <!-- ************USER*************-->
+    <div class="logout-block">
+        <div>
+            <label value="Användarnamn:"/> <label/> <!--koppla med användarnamn-->
+            <br/>
+            <label value="Användarroll"/> <label/> <!--koppla med användarnamn-->
+            <br/>
+            <input type="submit" value= "Logga ut"/>
+        </div>
+    </div>
+
+    <br/> <br/>
+    <hr/>
+    <br/> <br/>
+
+
+
+<!-- ************PRODUCT*************-->
     <div class="product-block">
-
+    <!--det är javascript som fyller det-->
     </div>
-    <br/> <br/> <br/>
 
 
-        <!--*************CART************-->
-        <div class="cart-block">
-            <h1>Kundvagn</h1>
-            <table class="cart-tabell">
-                <tbody>
-                <tr>
-                   <!-- 3 <td></td> att fylla genom js och styla med css :1name 2price 3button
-                                 + <input type="submit" value = "Ta bort" /> -->
-                    <!-- att koppla med rätta event-->
+    <!--*************CART************-->
+    <div class="cart-block">
+        <h1>Kundvagn</h1>
+        <table class="cart-tabell">
+            <tbody>
+            <tr>
+               <!-- 3 <td></td> att fylla genom js och styla med css :1name 2price 3button
+                             + <input type="submit" value = "Ta bort" /> -->
+                <!-- att koppla med rätta event-->
 
-                </tr>
-                </tbody>
-            </table>
+            </tr>
+            </tbody>
+        </table>
 
-            <br/>
-            <label value="Total:"/> <label/> <!-- kopplat med rätta event-->
-            <label value=" (Premium rabatt inkluderad!)" rendered="false"/> <!-- vad blir det?-->
-            <br/>
-            <input type="submit" value = "Köp"/><!-- att koppla med rätta event-->
-            <input type="submit" value = "Töm varukorg"/> <!-- att koppla med rätta event-->
-        </div>
-    </body>
+        <br/>
+        <label value="Total:"/> <label/> <!-- kopplat med rätta event-->
+        <label value=" (Premium rabatt inkluderad!)" rendered="false"/> <!-- vad blir det?-->
+        <br/>
+        <input type="submit" value = "Köp"/><!-- att koppla med rätta event-->
+        <input type="submit" value = "Töm varukorg"/> <!-- att koppla med rätta event-->
+    </div>
+
+</body>
 
 </html>
