@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-
 public class UserController {
 
-    private UserServiceImpl userService;
+    private UserService userService;
 
     public UserController() {
     }
 
-@Autowired
-    public UserController(UserServiceImpl userService) {
+    @Autowired
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @RequestMapping("/user")
-    public String index()
-    {return "hello User";}
+    public String index() {
+        return "hello User";
+    }
 
 
 
