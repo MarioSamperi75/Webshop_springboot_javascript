@@ -26,21 +26,22 @@ public class ProductController {
         return "hello Product";
     }
 
-
-
-
-    //----------------Visa Product från DB  genom Username
-    @RequestMapping(value = "/productName/{productName}")
-    public Product findProductByName(@PathVariable String productName) { //findUserbyUsername
-        return  productService.findByName(productName);
-
-    }
-
-
+    // Visar alla produkter från DB
     @RequestMapping(value = "/products")
     public List<Product> findAllProducts() {
-        return  productService.findAllProducts();
+        return productService.findAllProducts();
+    }
 
+    // Visa Product från DB genom produktnamn
+    @RequestMapping(value = "/productName/{productName}")
+    public Product findProductByName(@PathVariable String productName) {
+        return productService.findByName(productName);
+    }
+
+    // // Visar produkter innehållandes {containing}
+    @RequestMapping(value = "/searchProductContaining/{containing}")
+    public List<Product> findByNameContaining(@PathVariable String containing) {
+        return productService.findByNameContaining(containing);
     }
 
 }

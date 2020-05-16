@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
     private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -22,10 +22,11 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
+    @Override
     public User findByUsername(String username) {
         User result = userRepository.findByUsername(username);
         log.info("findByUsername " + result);
-        return  result;
+        return result;
     }
 
     public List<User> findAllUsers(){ return userRepository.findAll(); }

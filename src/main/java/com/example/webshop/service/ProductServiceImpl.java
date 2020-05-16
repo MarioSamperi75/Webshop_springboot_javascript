@@ -26,12 +26,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findByName(String productName) {
-        Product result = productRepository.findByName(productName);
-        log.info("findByProductByname " + result);
-        return  result;
+        Product result = productRepository.findByNameIgnoreCase(productName);
+        log.info("findByProductByName " + result);
+        return result;
     }
 
-    public List<Product> findAllProducts(){ return productRepository.findAll(); }
+    @Override
+    public List<Product> findAllProducts() {
+        return productRepository.findAll();
+    }
 
-
+    @Override
+    public List<Product> findByNameContaining(String containing) {
+        return productRepository.findByNameContainingIgnoreCase(containing);
+    }
 }
