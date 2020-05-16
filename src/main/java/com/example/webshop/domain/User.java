@@ -16,9 +16,9 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name = "first_name", nullable = false) // 'nullable = false' = Får inte vara null.
-    private String firstName;
+    private String firstname;
     @Column(name = "last_name", nullable = false)
-    private String lastName;
+    private String lastname;
     @Column(name = "address", nullable = false)
     private String address;
     @Column(name = "user_name", nullable = false)
@@ -39,16 +39,16 @@ public class User implements Serializable {
     }
 
     public User(
-            String firstName,
-            String lastName,
+            String firstname,
+            String lastname,
             String address,
             String username,
             String password,
             String email,
             Role role,
             double totalAmount) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.address = address;
         this.email = email;
         this.username = username;
@@ -96,20 +96,20 @@ public class User implements Serializable {
         this.totalAmount = totalAmount;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getAddress() {
@@ -130,9 +130,9 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+        return "User {" +
+                "firstName='" + firstname + '\'' +
+                ", lastName='" + lastname + '\'' +
                 ", address='" + address + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
