@@ -18,16 +18,12 @@ public class UserController {
 
     private UserServiceImpl userService;
 
-
-    public UserController() {
-    }
+    public UserController() {}
 
 @Autowired
     public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
-
-
 
     @RequestMapping("/user")
     public String index()
@@ -43,7 +39,4 @@ public class UserController {
     public List<User> findAllUsers() {
         return  userService.findAllUsers();
     }
-
-
-
 }

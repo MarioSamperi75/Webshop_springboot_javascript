@@ -96,3 +96,18 @@
     vertical-align: top;
 }
 
+.users-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.users-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.users-table th {
+    background-color: #dddddd;
+}
