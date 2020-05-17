@@ -12,8 +12,7 @@ public class ProductController {
 
     private ProductServiceImpl productService;
 
-    public ProductController() {
-    }
+    public ProductController() {}
 
     @Autowired
     public ProductController(ProductServiceImpl productService) {
@@ -21,24 +20,18 @@ public class ProductController {
     }
 
     @RequestMapping("/product")
-    public String index()
-    {return "hello Product";}
-
-
-
+    public String index() {
+        return "hello Product";
+    }
 
     //----------------Visa Product från DB  genom Username
     @RequestMapping(value = "/productByProductname/{productName}")
     public Product findUserbyUsername(@PathVariable String productName) {
         return  productService.findByName(productName);
-
     }
-
 
     @RequestMapping(value = "/products")
     public List<Product> findAllProducts() {
         return  productService.findAllProducts();
-
     }
-
 }

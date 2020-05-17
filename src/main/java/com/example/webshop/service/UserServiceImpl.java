@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
     private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -28,7 +28,9 @@ public class UserServiceImpl implements UserService{
         return  result;
     }
 
-    public List<User> findAllUsers(){ return userRepository.findAll(); }
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
+    }
 
      /*result = addressRepository.findByStreetname("Södervägen");
         log.info("findByStreet" + result);
