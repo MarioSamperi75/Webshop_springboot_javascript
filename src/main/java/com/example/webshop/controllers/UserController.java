@@ -17,12 +17,13 @@ import java.util.List;
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
-    private UserServiceImpl userService;
+    private UserService userService;
 
-    public UserController() {}
+    public UserController() {
+    }
 
     @Autowired
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -31,6 +32,7 @@ public class UserController {
         return "hello User";
     }
 
+    //----------------Visa User från DB  genom Username
     @RequestMapping(value = "/userByUsername/{username}")
     public User findUserbyUsername(@PathVariable String username) {
         return  userService.findByUsername(username);

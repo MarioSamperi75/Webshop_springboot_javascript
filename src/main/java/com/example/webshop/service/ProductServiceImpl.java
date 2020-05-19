@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository;
     private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
@@ -24,13 +24,20 @@ public class ProductServiceImpl implements ProductService{
         this.productRepository = productRepository;
     }
 
+    @Override
     public Product findByName(String productName) {
-        Product result = productRepository.findByName(productName);
-        log.info("findByProductname " + result);
-        return  result;
+        Product result = productRepository.findByNameIgnoreCase(productName);
+        log.info("findByProductByName " + result);
+        return result;
     }
 
-    public List<Product> findAllProducts(){ return productRepository.findAll(); }
+    @Override
+    public List<Product> findAllProducts() {
+        return productRepository.findAll();
+    }
 
-
+    @Override
+    public List<Product> findByNameContaining(String containing) {
+        return productRepository.findByNameContainingIgnoreCase(containing);
+    }
 }
