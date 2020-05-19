@@ -1,12 +1,12 @@
 package com.example.webshop.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "ORDER_ITEM")
-
-
 public class Order_Item implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +16,7 @@ public class Order_Item implements Serializable {
     private Long id;
 
     @ManyToOne
+    @JsonBackReference
     private Orders orders;
     @ManyToOne
     private Product product;

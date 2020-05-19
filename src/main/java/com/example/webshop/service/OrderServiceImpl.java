@@ -19,6 +19,7 @@ public class OrderServiceImpl implements OrderService {
         this.orderRepository = orderRepository;
     }
 
+    @Override
     public List<Orders> findAllOrders() {
         return orderRepository.findAll();
     }

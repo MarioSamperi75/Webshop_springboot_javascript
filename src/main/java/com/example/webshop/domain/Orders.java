@@ -1,13 +1,11 @@
 package com.example.webshop.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-@NamedQueries({
-        @NamedQuery(name = "findAllOrders", query = "SELECT o FROM Orders o")
-})
 
 @Entity
 @Table(name = "ORDERS")
@@ -23,6 +21,7 @@ public class Orders implements Serializable {
     private User user;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy="orders")
+    @JsonManagedReference
     private List<Order_Item> order_ItemList = new ArrayList<>();
 
 
