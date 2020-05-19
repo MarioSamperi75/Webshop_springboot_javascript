@@ -14,21 +14,22 @@ public class Order_Item implements Serializable {
     @Basic(optional=false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @ManyToOne
     @JsonBackReference
     private Orders orders;
     @ManyToOne
     private Product product;
+    private int quantity;
 
 //-----------------------------------------
 
     public Order_Item() {
     }
 
-    public Order_Item(Orders orders, Product product) {
+    public Order_Item(Orders orders, Product product, int quantity) {
         this.orders = orders;
         this.product = product;
+        this.quantity = quantity;
     }
 
 //-----------------------------------------
@@ -52,5 +53,13 @@ public class Order_Item implements Serializable {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
