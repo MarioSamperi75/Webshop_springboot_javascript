@@ -1,0 +1,113 @@
+.body{
+    margin: auto;
+}
+
+.form{
+    margin: auto;
+}
+
+.user-password{
+    display: block;
+    width: 252px;
+    margin: auto;
+}
+
+.index-buttons{
+    display: block;
+    width: 160px;
+    margin: auto;
+}
+
+.username-label, .password-label{
+    display: inline-block;
+    width: 120px;
+}
+
+.username-value, .password-value{
+    display: inline-block;
+    width: 120px;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.logo{
+    margin: auto;
+    display: block;
+    width: 250px;
+}
+
+.login-register-btn {
+    color: lightgreen;
+    background-color: teal;
+    width: 78px;
+}
+
+.product-title{
+    color: black;
+    font-size: 20px;
+}
+
+.product-description {
+    color: black;
+    background: antiquewhite;
+}
+
+.cart-tabell {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.col-name{
+    width: 200px;
+}
+
+.col-price{
+    width: 200px;
+    text-align: right;
+}
+
+.login-message{
+    text-align: center;
+    display: block;
+    width: 200px;
+    margin: auto;
+}
+
+
+.product-block {
+    display: inline-block;
+    width: 500px;
+}
+
+.cart-block {
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+}
+
+.search-block {
+    display: inline-block;
+    width:  500px;
+}
+
+.logout-block {
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+}
+
+.admin-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.admin-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.admin-table th {
+    background-color: #dddddd;
+}

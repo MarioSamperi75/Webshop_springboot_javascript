@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webshop</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="script/index.js"></script>
+</head>
+
+
+<body>
+    <div>
+    <br/>
+    <img alt="Shop Logo, Chips" src="Images/logo.png" class="logo"/>
+    <br/>
+    <div class="form">
+
+        <div class="user-password">
+            <label class="username-label" for="usernameInput">Användarnamn:</label>
+            <input type="text" id="usernameInput" class="username-value"/>
+            <br/>
+
+            <label class="password-label" for="passwordInput">Lösenord:</label>
+            <input type="password" id="passwordInput" class="password-value"/>
+        </div>
+        <br/>
+
+        <div class="index-buttons">
+            <a href="templates/customer.html">
+                <input type="submit" id="login" value="Logga in" class="login-register-btn"/>
+            </a>
+            <a href="templates/register.html">
+                <input type="submit"  id="register" value="Registrera" class="login-register-btn"/>
+            </a>
+
+            <!--Debug genväg till admin för att testa den, ta bort sen-->
+            <a href="templates/admin.html">
+                <input type="submit" value="Admin sida" class="login-register-btn"/>
+            </a>
+        </div>
+        <br/>
+
+        <label class="login-message"></label>
+        <br/>
+    </div>
+    </div>
+</body>
+</html>
