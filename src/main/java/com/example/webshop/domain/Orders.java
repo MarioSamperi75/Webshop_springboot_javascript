@@ -36,6 +36,10 @@ public class Orders implements Serializable {
     }
 
 
+    public long getId() {
+        return id;
+    }
+
     public User getUser() {
         return user;
     }

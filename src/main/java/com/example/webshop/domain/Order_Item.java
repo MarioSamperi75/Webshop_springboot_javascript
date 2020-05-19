@@ -34,6 +34,10 @@ public class Order_Item implements Serializable {
 //-----------------------------------------
 
 
+    public Long getId() {
+        return id;
+    }
+
     public Orders getOrders() {
         return orders;
     }
