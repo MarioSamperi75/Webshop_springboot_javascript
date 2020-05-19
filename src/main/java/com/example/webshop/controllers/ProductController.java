@@ -2,7 +2,6 @@ package com.example.webshop.controllers;
 
 import com.example.webshop.domain.Product;
 import com.example.webshop.service.ProductService;
-import com.example.webshop.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -43,5 +42,4 @@ public class ProductController {
     public List<Product> findByNameContaining(@PathVariable String containing) {
         return productService.findByNameContaining(containing);
     }
-
 }

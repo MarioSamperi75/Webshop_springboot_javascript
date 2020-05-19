@@ -96,18 +96,18 @@
     vertical-align: top;
 }
 
-.users-table {
+.admin-table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-.users-table td {
+.admin-table td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-.users-table th {
+.admin-table th {
     background-color: #dddddd;
 }

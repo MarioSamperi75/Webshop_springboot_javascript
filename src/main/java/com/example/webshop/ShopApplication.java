@@ -5,6 +5,7 @@ import com.example.webshop.repository.OrderRepository;
 import com.example.webshop.repository.ProductRepository;
 import com.example.webshop.repository.UserRepository;
 import com.example.webshop.service.UserServiceImpl;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -70,8 +71,6 @@ public class ShopApplication {
             orders2.setOrder_ItemList(order_itemList2);
 
 
-
-
             userRepository.save(user1);
             userRepository.save( user2);
             userRepository.save( user3);
@@ -83,11 +82,7 @@ public class ShopApplication {
             orderRepository.save( orders1);
             orderRepository.save( orders2);
 
-
             userService.findByUsername("customer");
-
         });
-
-
     }
 }
