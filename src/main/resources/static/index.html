@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Webshop</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -12,23 +12,23 @@
 <body>
     <div>
     <br/>
-    <img src="Images/logo.png" class="logo"/>
+    <img alt="Shop Logo, Chips" src="Images/logo.png" class="logo"/>
     <br/>
     <div class="form">
 
         <div class="user-password">
-            <label class="username-label">Användarnamn:</label>
-            <input type="text"  class="username-value"/>
+            <label class="username-label" for="usernameInput">Användarnamn:</label>
+            <input type="text" id="usernameInput" class="username-value"/>
             <br/>
 
-            <label class="password-label">Lösenord:</label>
-            <input type="password"  class="password-value"/>
+            <label class="password-label" for="passwordInput">Lösenord:</label>
+            <input type="password" id="passwordInput" class="password-value"/>
         </div>
         <br/>
 
         <div class="index-buttons">
             <a href="templates/customer.html">
-            <input type="submit" id="login" value="Logga in" class="login-register-btn"/>
+                <input type="submit" id="login" value="Logga in" class="login-register-btn"/>
             </a>
             <a href="templates/register.html">
                 <input type="submit"  id="register" value="Registrera" class="login-register-btn"/>

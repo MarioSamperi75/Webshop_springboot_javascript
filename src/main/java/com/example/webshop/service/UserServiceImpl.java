@@ -22,15 +22,33 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
+    @Override
     public User findByUsername(String username) {
         User result = userRepository.findByUsername(username);
         log.info("findByUsername " + result);
         return  result;
     }
 
-    public List<User> findAllUsers(){ return userRepository.findAll(); }
+    @Override
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
+    }
 
-     /*result = addressRepository.findByStreetname("Södervägen");
+    @Override
+    public boolean verifyUserAndPass(User user) {
+        List<User> users = userRepository.findAll();
+
+        for (User userInDB : users) {
+            if(user.getUsername().equalsIgnoreCase(userInDB.getUsername())) {
+                if(user.getPassword().equals(userInDB.getPassword())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /*result = addressRepository.findByStreetname("Södervägen");
         log.info("findByStreet" + result);
         result = addressRepository.findByStreetnameAndCity("Solna","Södervägen");
         log.info("findByStreetnameAndCity" + result);
