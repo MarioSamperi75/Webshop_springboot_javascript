@@ -10,4 +10,7 @@ public interface OrderService {
     //Product findByName(String productName);
 
     List<Orders> findAllOrders();
+
+    List <Orders> findOrderByUsername(String username);
+
 }

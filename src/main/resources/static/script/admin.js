@@ -15,7 +15,8 @@ function loadCustomers() {
                         '<td>' + data[i].password + '</td>' +
                         '<td>' + data[i].role + '</td>' +
                         '<td>' + data[i].totalAmount + '</td>' +
-                    '</tr>');
+                    '</tr>'
+                );
             }
         }
         console.log(data);
@@ -24,10 +25,31 @@ function loadCustomers() {
 
 function listOrdersOf(customer) {
     $.ajax({
-        url: "http://localhost:8080//userByUsername/" + customer
+        url: "http://localhost:8080//orderByUsername/" + customer
     }).then(function(data) {
-        console.log(data);
+        $('#orders').empty();
+        $('#orders').append(
+            '<tr>' +
+                '<th>Orders</th>' +
+                '<th>Database ID</th>' +
+            '</tr>'
+        );
+        if(data.length > 0){
+            for(let i = 0; i< data.length; i++) {
+                $('#orders').append(
+                    '<tr>' +
+                    '<td> <button name="' + data[i].id + '" onclick = "console.log(this.name)"> Order ' + generateOrderNumb(i) + '</button> </td>' +
+                    '<td>' + data[i].id + '</td>' +
+                    '</tr>'
+                );
+                console.log(data[i]);
+            }
+        }
     });
+}
+
+function generateOrderNumb(numb){
+    return numb + 1;
 }
 
 $(document).ready(function() {
