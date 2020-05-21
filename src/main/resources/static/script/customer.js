@@ -22,12 +22,14 @@ $(document).ready(function() {
 
     let $username = "customer";
     let $productList = [];
+    let $total = 0;
+
     loadProducts();
 
     $("#buy").on('click', function () {
 
         var data = { username: $username, productList: $productList}
-        // skicka inputpaket
+        // skicka inputpaket(data object)
         // todo: beräkna och lägga till total i paketet
         $.ajax({
             url: 'http://localhost:8080/user/addNewOrder',
@@ -43,7 +45,14 @@ $(document).ready(function() {
                     $('.result-message').empty().append("Ooops that's not correct! But keep trying!");
                 }
             }
+
         });
+        //clear (det kan bli egen funktion)
+        $total = 0;
+        $('.cart-tabell').empty();
+        $productList = [];
+        $('.total').empty().append($total);
+
 
 
     });
@@ -64,6 +73,12 @@ $(document).ready(function() {
                 "<td class='col-name'>" + $name + "</td>" +
                 "<td class='col-price'>" + $price + " kr" +"</td>" +
             "</tr>");
+
+        //uppdaterar variabel total
+        $total = Number($total) + Number($price);
+        $('.total').empty().append($total);
+        console.log("total: " + $total);
+
 
 
 
