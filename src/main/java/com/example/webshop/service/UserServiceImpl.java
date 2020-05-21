@@ -48,18 +48,4 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-    /*result = addressRepository.findByStreetname("Södervägen");
-        log.info("findByStreet" + result);
-        result = addressRepository.findByStreetnameAndCity("Solna","Södervägen");
-        log.info("findByStreetnameAndCity" + result);
-        result = addressRepository.findByPostalCodeIsLessThan(456);
-        log.info("findByPostalCodeIsLessThan" + result);
-        result = addressRepository.findByPostalCodeIsLessThan(456);
-        log.info("findByPostalCodeIsLessThan" + result);
-        result = addressRepository.findByCityStartingWith("S");
-        log.info("findByCityStartingWith" + result);
-        result = addressRepository.findByCityContaining("l");
-        log.info("findByCityContaining" + result);
-        result = addressRepository.bothSame("Halmstad");
-        log.info("bothSame" + result);*/
 }

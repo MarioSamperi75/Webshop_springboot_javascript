@@ -8,9 +8,9 @@ function loadProducts() {
         for(let i = 0; i< data.length; i++) {
             $('.product-block').append(
                 "<div class='product'>" +
-                data[i].name + "<br>" +
+                "<p class='name'>" +  data[i].name + "<br>" + "</p>" +
                 data[i].description + "<br>" +
-                data[i].price + " kr" + "<br>" +
+                "<p class='price'>" +  data[i].price  + "</p>" + " kr" + "<br>" +
                 "<input class='add' type='submit' value='Lägg i kundvagnen'/>" + "<br>" + "<br>" +
                 "</div>");
         }
@@ -19,6 +19,57 @@ function loadProducts() {
 }
 
 $(document).ready(function() {
+
+    let $username = "customer";
+    let $productList = [];
     loadProducts();
+
+    $("#buy").on('click', function () {
+
+        var data = { username: $username, productList: $productList}
+        // skicka inputpaket
+        // todo: beräkna och lägga till total i paketet
+        $.ajax({
+            url: 'http://localhost:8080/user/addNewOrder',
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function(result){
+                if(result.correct) {
+                    $('.result-message').empty().append("The result is correct! Congratulations!");
+                } else {
+                    $('.result-message').empty().append("Ooops that's not correct! But keep trying!");
+                }
+            }
+        });
+
+
+    });
+
+
+    $("#product-block").on('click', ".add", function () {
+        //fångar text med productnamnet
+        $name = $(this).siblings('p.name').text();
+        $price = $(this).siblings('p.price').text();
+
+
+        // adderar till listan productname som vi ska skicka till controllern
+        $productList.push($name)
+
+        // addera en rad till varukorg
+        $('.cart-tabell').append
+            ("<tr>" +
+                "<td class='col-name'>" + $name + "</td>" +
+                "<td class='col-price'>" + $price + " kr" +"</td>" +
+            "</tr>");
+
+
+
+
+    });
+
+
 
 });

@@ -1,8 +1,10 @@
 package com.example.webshop.controllers;
 
+import com.example.webshop.domain.InputPack;
 import com.example.webshop.domain.Response;
 import com.example.webshop.domain.User;
 import com.example.webshop.service.ProductServiceImpl;
+import com.example.webshop.service.RegisterService;
 import com.example.webshop.service.UserService;
 import com.example.webshop.service.UserServiceImpl;
 import org.slf4j.Logger;
@@ -18,13 +20,15 @@ public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
     private UserService userService;
+    private RegisterService registerService;
 
     public UserController() {
     }
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, RegisterService registerService) {
         this.userService = userService;
+        this.registerService = registerService;
     }
 
     @RequestMapping("/user")
@@ -56,4 +60,29 @@ public class UserController {
         log.info("response -----> " + response.getMessage());
         return response;
     }
+
+    //flytta till register?
+    @PostMapping("/user/addNewOrder")
+    public Response addNewOrder(@RequestBody InputPack inputPack) {
+        String username = inputPack.getUsername();
+        List<String> productList = inputPack.getProductList();
+        registerService.addOrderItemLista(username, productList);
+
+
+
+
+
+        Response response=new Response("Order Added",false);
+
+
+        // TODO: 2020-05-17 if satsen kollar om newUser.get.. inte är null.
+        //  Om användaren submittar ett tomt värde så blir newUser.get.. = "", dvs en tom String.
+        //  if satsen kommer därför aldrig gå till else
+
+
+        return response;
+    }
+
+
+
 }

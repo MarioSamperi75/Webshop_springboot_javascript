@@ -48,7 +48,7 @@
 
 
 <!-- ************PRODUCT*************-->
-    <div class="product-block">
+    <div id="product-block" class="product-block">
     <!--det är javascript som fyller det-->
     </div>
 
@@ -57,21 +57,15 @@
     <div class="cart-block">
         <h1>Kundvagn</h1>
         <table class="cart-tabell">
-            <tbody>
-            <tr>
-               <!-- 3 <td></td> att fylla genom js och styla med css :1name 2price 3button
-                             + <input type="submit" value = "Ta bort" /> -->
-                <!-- att koppla med rätta event-->
 
-            </tr>
-            </tbody>
+
         </table>
 
         <br/>
         <label value="Total:"/> <label/> <!-- kopplat med rätta event-->
         <label value=" (Premium rabatt inkluderad!)" rendered="false"/> <!-- vad blir det?-->
         <br/>
-        <input type="submit" value = "Köp"/><!-- att koppla med rätta event-->
+        <button id="buy" type="submit">Köp</button>
         <input type="submit" value = "Töm varukorg"/> <!-- att koppla med rätta event-->
     </div>
 
