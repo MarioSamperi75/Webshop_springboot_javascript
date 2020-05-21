@@ -36,4 +36,15 @@ public class OrderServiceImpl implements OrderService {
         }
         return temp;
     }
+
+    @Override
+    public Orders findOrderByID(long id) {
+        Orders temp = null;
+        for(Orders orders : orderRepository.findAll()) {
+            if(orders.getId() == id) {
+                temp = orders;
+            }
+        }
+        return temp;
+    }
 }

@@ -27,6 +27,7 @@ function listOrdersOf(customer) {
     $.ajax({
         url: "http://localhost:8080//orderByUsername/" + customer
     }).then(function(data) {
+        $('#products').empty();
         $('#orders').empty();
         $('#orders').append(
             '<tr>' +
@@ -38,8 +39,8 @@ function listOrdersOf(customer) {
             for(let i = 0; i< data.length; i++) {
                 $('#orders').append(
                     '<tr>' +
-                    '<td> <button name="' + data[i].id + '" onclick = "console.log(this.name)"> Order ' + generateOrderNumb(i) + '</button> </td>' +
-                    '<td>' + data[i].id + '</td>' +
+                        '<td> <button name="' + data[i].id + '" onclick = "listProductsOf(this.name)"> Order ' + generateOrderNumb(i) + '</button> </td>' +
+                        '<td>' + data[i].id + '</td>' +
                     '</tr>'
                 );
                 console.log(data[i]);
@@ -50,6 +51,31 @@ function listOrdersOf(customer) {
 
 function generateOrderNumb(numb){
     return numb + 1;
+}
+
+function listProductsOf(orderID){
+    $.ajax({
+        url: "http://localhost:8080//orderByID/" + orderID
+    }).then(function(data) {
+        $('#products').empty();
+        $('#products').append(
+            '<tr>' +
+                '<th>Name</th>' +
+                '<th>Description</th>' +
+                '<th>Price</th>' +
+            '</tr>'
+        );
+        for(let i = 0; i< data.order_ItemList.length; i++) {
+            $('#products').append(
+                '<tr>' +
+                    '<td>' + data.order_ItemList[i].product.name + '</td>' +
+                    '<td>' + data.order_ItemList[i].product.description + '</td>' +
+                    '<td>' + data.order_ItemList[i].product.price + '</td>' +
+                '</tr>'
+            );
+        }
+    });
+    console.log(orderID)
 }
 
 $(document).ready(function() {

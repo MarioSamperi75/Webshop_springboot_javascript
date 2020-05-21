@@ -33,4 +33,9 @@ public class OrderController {
     public List <Orders> findOrderByUsername(@PathVariable String username) {
         return orderService.findOrderByUsername(username);
     }
+
+    @RequestMapping(value = "/orderByID/{id}")
+    public Orders findOrderByID(@PathVariable long id) {
+        return orderService.findOrderByID(id);
+    }
 }
