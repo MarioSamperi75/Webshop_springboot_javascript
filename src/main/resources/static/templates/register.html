@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 <head>
     <title>Webshop_register</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
     <script src="../script/register.js"></script>
+    <link rel="icon" href="#" type="image/x-icon">
 </head>
 
 <body>
 
         <div>
-            <form id ="register-form" class="user-password">
-                <h1>Register page</h1>                                       <br/>
-                <label  class="password-label">Förnamn: </label>
+            <form id="register-form" class="register-form-class">
+                <h1>Register page</h1>
+                <br/>
+                <label  class="password-label" for="firstname">Förnamn: </label>
                 <input type="text" id="firstname" name="firstname" class="password-value">   <br/>
 
-                <label  class="password-label">Efternamn: </label>
+                <label  class="password-label" for="lastname">Efternamn: </label>
                 <input type="text" id="lastname" name="lastname" class="password-value">    <br/>
 
-                <label  class="password-label">Adress: </label>
+                <label  class="password-label" for="address">Adress: </label>
                 <input type="text" id="address" name="address" class="password-value">     <br/>
 
-                <label  class="password-label">Användarnamn: </label>
+                <label  class="password-label" for="username">Användarnamn: </label>
                 <input type="text" id="username" name="username" class="password-value">    <br/>
 
-                <label  class="password-label">Lösenord: </label>
-                <input type="text" id="password" name="password" class="password-value">    <br/>
+                <label  class="password-label" for="password">Lösenord: </label>
+                <input type="password" id="password" name="password" class="password-value">    <br/>
 
-                <label  class="password-label">Email: </label>
-                <input type="text" id="email" name="email" class="password-value">       <br/>
+                <label  class="password-label" for="email">Email: </label>
+                <input type="email" id="email" name="email" class="password-value">       <br/>
 
                 <br/><br/>
 
                 <input type="submit"  value="Registrera"/>
             </form>
+
+            <div class="register-message"></div>
     </div>
 </body>
 </html>
