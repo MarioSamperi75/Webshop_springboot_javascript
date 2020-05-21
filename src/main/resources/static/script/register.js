@@ -95,16 +95,16 @@ $(document).ready(function() {
             async: false,
             success: function(responseMessage){
                 if(responseMessage.status) {
-                    // Visa ett meddelande i 3 sek och ta sedan användaren tillbaka till index.
-                    $('.register-message').empty().append('<p>' + 'Användaren har registrerats' + '</p>');
+                    // Registrering gick bra! -> Visa responseMessage.message i 3 sek och ta sedan användaren tillbaka till index.
+                    $('.register-message').empty().append(`<p>${responseMessage.message}</p>`);
                     setTimeout(function(){
                         window.location.href='http://localhost:8080/';
                         }, 3000);
                 } else {
-                    // Kolla felmeddelande och skriv ut efter det
+                    // Registrering gick inte bra -> visa responseMessage.message
                     console.log("Användaren har inte blivit reggad!");
                     $('.register-message').empty().append(
-                        '<p>' + 'Något gick fel. Användaren har inte blivit registrerad' + '</p>'
+                        `<p>${responseMessage.message}</p>`
                     );
                 }
             }

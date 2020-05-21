@@ -31,17 +31,7 @@ public class RegisterController {
     @PostMapping("/user/add")
     public Response addUser(@RequestBody User newUser) {
         log.info("user från registerController" + newUser);
-        Response response=new Response("",false);
-        if(newUser.getFirstname().equals("") || newUser.getLastname().equals("") || newUser.getAddress().equals("")
-                || newUser.getUsername().equals("") || newUser.getPassword().equals("") || newUser.getEmail().equals("") ) {
-            response.setMessage("Error. Användaren lades inte till. Pröva igen");
-        } else {
-            registerService.addUser(newUser);
-            response.setStatus(true);
-        }
-        log.info(response.getMessage());
-        log.info("user från registerController" + newUser);
-        return response;
+        return registerService.addUser(newUser);
     }
 
 
