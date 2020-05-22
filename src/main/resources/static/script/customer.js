@@ -74,7 +74,7 @@ $(document).ready(function() {
 
             });
             clearCart();
-
+            window.location.href = "order.html" + "?username=" + $username;
         }
 
 
@@ -102,6 +102,10 @@ $(document).ready(function() {
         $total = Number($total) + Number($price);
         $('.total').empty().append($total);
 
+    });
+
+    $("#clear").on('click', function () {
+        clearCart();
     });
 
 
