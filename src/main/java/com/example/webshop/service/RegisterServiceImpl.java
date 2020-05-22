@@ -51,15 +51,22 @@ public class RegisterServiceImpl implements RegisterService{
 
    @Transactional
     public Response addOrderItemLista (String username,  List<String> productListString, double total) {
-        //andas djupt... gå!!!
+       //andas djupt... gå!!!
+       //Description: fångar obejkt som böhövs, skapar listor som behövs, kopplar listor med objekt,
+       // sparar order, uppdate user total amoun (kan man dela i flera metoder?)
 
-       //fångar obejkt som böhövs, skapar listor som behövs, kopplar listor med objekt, sparar order, uppdate user total amoun
+       //get motsvarade user o skapa en productLista att fylla i
         User user = userService.findByUsername(username);
         List<Product> productList = new ArrayList<>();
 
-        //uppdate total amount och spara user
+        //uppdate total amount, eventuellt role, och spara user
         log.info("user : " +user.getUsername());
         user.setTotalAmount(user.getTotalAmount() + total);
+
+        //Premium villkor för getTotalAmount (för den nya TotalAmount)!
+        if (user.getTotalAmount()>=500)
+            user.setRole(Role.PREMIUM_CUSTOMER);
+
         userRepository.save(user);
 
         //gå genom list med productnamn och skapa en produktList (objekt product inte bara namn)
@@ -67,7 +74,7 @@ public class RegisterServiceImpl implements RegisterService{
             productList.add(productService.findByName(productListString.get(i)));
         }
 
-        //tar lista med alla Orders (user + inköpslista) skapa ny inköpslista, skapa en ny Orders
+        //tar lista med alla Orders (Orders = user + inköpslista) skapa ny inköpslista, skapa en ny Orders
         List<Orders> ordersList = user.getOrdersList();
         List<Order_Item> order_itemList = new ArrayList<>();
         Orders orders = new Orders();
