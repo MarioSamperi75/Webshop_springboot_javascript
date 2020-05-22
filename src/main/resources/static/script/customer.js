@@ -19,8 +19,8 @@ function loadProducts() {
 }
 
 $(document).ready(function() {
-
-    let $username = "customer";
+    //tar url och replace allt utom argument med "". Det blir bara argument
+    let $username = document.location.search.replace(/^.*?\=/,'');
     let $productList = [];
     let $total = 0;
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     $("#buy").on('click', function () {
 
-        var data = { username: $username, productList: $productList}
+        var data = { username: $username, productList: $productList, total: $total}
         // skicka inputpaket(data object)
         // todo: beräkna och lägga till total i paketet
         $.ajax({
@@ -78,6 +78,8 @@ $(document).ready(function() {
         $total = Number($total) + Number($price);
         $('.total').empty().append($total);
         console.log("total: " + $total);
+
+        console.log($username);
 
 
 

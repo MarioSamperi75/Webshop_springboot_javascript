@@ -66,7 +66,8 @@ public class UserController {
     public Response addNewOrder(@RequestBody InputPack inputPack) {
         String username = inputPack.getUsername();
         List<String> productList = inputPack.getProductList();
-        registerService.addOrderItemLista(username, productList);
+        double total = inputPack.getTotal();
+        registerService.addOrderItemLista(username, productList, total);
 
 
 

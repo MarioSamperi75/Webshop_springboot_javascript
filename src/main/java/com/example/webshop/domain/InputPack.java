@@ -6,6 +6,7 @@ public class InputPack {
 
     private String username;
     private List<String> productList;
+    private double total;
 
 
     public String getUsername() {
@@ -22,5 +23,13 @@ public class InputPack {
 
     public void setProductList(List<String> productList) {
         this.productList = productList;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }

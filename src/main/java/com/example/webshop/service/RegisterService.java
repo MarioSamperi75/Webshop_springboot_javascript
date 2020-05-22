@@ -9,6 +9,6 @@ import java.util.List;
 public interface RegisterService {
     Response addUser(User newUser);
 
-    Response addOrderItemLista(String username, List<String> productList);
+    Response addOrderItemLista(String username, List<String> productList, double total);
 
 }
