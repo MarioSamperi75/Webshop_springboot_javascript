@@ -2,8 +2,10 @@ package com.example.webshop.controllers;
 
 
 import com.example.webshop.domain.Orders;
+import com.example.webshop.domain.User;
 import com.example.webshop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +26,16 @@ public class OrderController {
     @RequestMapping(value = "/orders")
     public List<Orders> findAllOrders() {
         return orderService.findAllOrders();
+    }
+
+    //----------------Visa User från DB  genom Username
+    @RequestMapping(value = "/orderByUsername/{username}")
+    public List <Orders> findOrderByUsername(@PathVariable String username) {
+        return orderService.findOrderByUsername(username);
+    }
+
+    @RequestMapping(value = "/orderByID/{id}")
+    public Orders findOrderByID(@PathVariable long id) {
+        return orderService.findOrderByID(id);
     }
 }

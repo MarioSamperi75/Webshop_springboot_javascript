@@ -1,5 +1,7 @@
 package com.example.webshop.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class User implements Serializable {
     private Role role;
     @Column(name = "totalAmount", nullable = false)
     private double totalAmount;
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy="user")
     private List<Orders> ordersList = new ArrayList<>();
 
@@ -76,9 +79,9 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    //public List<Orders> getOrdersList() {  return ordersList; }
+    public List<Orders> getOrdersList() {  return ordersList; }
 
-   // public void setOrdersList(List<Orders> ordersList) { this.ordersList = ordersList; }
+    public void setOrdersList(List<Orders> ordersList) { this.ordersList = ordersList; }
 
     public double getTotalAmount() {
         return totalAmount;

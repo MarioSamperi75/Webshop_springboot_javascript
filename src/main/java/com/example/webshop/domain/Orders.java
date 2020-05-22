@@ -1,5 +1,6 @@
 package com.example.webshop.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class Orders implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     private long id;
+    @JsonBackReference
     @ManyToOne
     private User user;
 
