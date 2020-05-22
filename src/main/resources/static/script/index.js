@@ -25,7 +25,17 @@ function verifyLogin() {
 }
 
 $(document).ready(function() {
-    $('#login').on('click', verifyLogin);
+
+
+
+    $('#login').on('click', function () {
+        let  $role= $("#usernameInput").val();
+        if ($role == "admin")
+            window.location.href = "../templates/admin.html" + "?username=" + $role;
+        else
+            window.location.href = "../templates/customer.html" + "?username=" + $role;
+
+    });
 });
 
 /*function updateMultiplication() {
