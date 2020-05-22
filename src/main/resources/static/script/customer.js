@@ -1,3 +1,4 @@
+//tar url och replace allt utom argument med "". Det blir bara argument
 let $username = document.location.search.replace(/^.*?\=/,'');
 let $productList = [];
 let $total = 0;
@@ -45,8 +46,6 @@ function clearCart() {
 }
 
 $(document).ready(function() {
-    //tar url och replace allt utom argument med "". Det blir bara argument
-
 
 
     loadProducts();
