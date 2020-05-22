@@ -12,6 +12,24 @@
     margin: auto;
 }
 
+.register-form-class {
+    display: block;
+    width: 252px;
+    margin: auto;
+}
+label.error {
+    color: #b31b10;
+}
+.register-form-class input {
+    margin-top: 20px;
+}
+
+.register-message {
+    display: block;
+    width: 252px;
+    margin: auto;
+}
+
 .index-buttons{
     display: block;
     width: 160px;

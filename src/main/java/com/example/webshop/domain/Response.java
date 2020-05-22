@@ -21,7 +21,7 @@ public class Response {
         this.message = message;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
