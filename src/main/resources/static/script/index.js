@@ -29,11 +29,11 @@ $(document).ready(function() {
 
 
     $('#login').on('click', function () {
-        let  $role= $("#usernameInput").val();
-        if ($role == "admin")
-            window.location.href = "../templates/admin.html" + "?username=" + $role;
+        let  $username= $("#usernameInput").val();
+        if ($username == "admin")  // det kommer att bli role == role.ADMIN
+            window.location.href = "../templates/admin.html" + "?username=" + $username;
         else
-            window.location.href = "../templates/customer.html" + "?username=" + $role;
+            window.location.href = "../templates/customer.html" + "?username=" + $username;
 
     });
 });

@@ -28,9 +28,8 @@ function loadUser() {
     }).then(function(data) {
 
 
-        $('.logout-block').empty().append("<label>Användarnamn: " + data.username + " <label/>" +
-                                          "<br/><label>Användarroll: " + data.role +" <label/> <br/><br/><br/><br/>" +
-                                          "<button class = 'logout-btn'>Logga ut</button>");
+        $('#logout-block').empty().append("<label>Användarnamn: " + data.username + "</label>" +
+                                          "<br/><label>Användarroll: " + data.role +" </label> " );
 
         console.log("data:  " + data.username + " " + data.role);
     });
@@ -42,6 +41,14 @@ function clearCart() {
     $('.cart-tabell').empty();
     $productList = [];
     $('.total').empty().append($total);
+
+}
+
+
+function logOut() {
+    clearCart();
+    window.location.href = "../index.html";
+
 
 }
 
@@ -105,6 +112,10 @@ $(document).ready(function() {
 
     $("#clear").on('click', function () {
         clearCart();
+    });
+
+    $("#logout-btn").on('click', function () {
+        logOut();
     });
 
 
