@@ -1,4 +1,16 @@
 
+/*let $role = null;
+
+function getCustomer() {
+    $.ajax({
+        url: "http://localhost:8080//userByUsername/" + $username
+    }).then(function(data) {
+        $role= data.role;
+        console.log($role);
+    });
+}*/
+
+
 function verifyLogin() {
     let username = $('#usernameInput').val();
     let password = $('#passwordInput').val();

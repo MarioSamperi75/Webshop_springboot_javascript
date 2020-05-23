@@ -2,6 +2,9 @@
 let $username = document.location.search.replace(/^.*?\=/,'');
 let $productList = [];
 let $total = 0;
+let $rabatt = "";
+
+
 
 function loadProducts() {
     $.ajax({
@@ -29,7 +32,7 @@ function loadUser() {
 
 
         $('#logout-block').empty().append("<label>Användarnamn: " + data.username + "</label>" +
-                                          "<br/><label>Användarroll: " + data.role +" </label> " );
+                                          "<br/><label class='role'>Användarroll: " + data.role +"</label> " );
 
         console.log("data:  " + data.username + " " + data.role);
     });
@@ -79,8 +82,21 @@ $(document).ready(function() {
                 }
 
             });
-            clearCart();
-            window.location.href = "order.html" + "?username=" + $username;
+
+
+            //user rabatt msg som villkor: om det finns skickar premium som url parameter, annars customer
+            // för lätt att hacka???
+            $rabatt = $('#discount-msg');
+            if ($rabatt.text()=="") {
+                clearCart();
+                window.location.href = "order.html" + "?username=" + $username+ "-"
+            }
+            else {
+                clearCart();
+                //" ":lätt att hacka ändå men om jag skriver typ "premium" bli varsågod!!!
+                window.location.href = "order.html" + "?username=" + $username + "_";
+            }
+
         }
 
 
@@ -104,8 +120,16 @@ $(document).ready(function() {
                 "<td class='col-price'>" + $price + " kr" +"</td>" +
             "</tr>");
 
-        //uppdaterar variabel total
-        $total = Number($total) + Number($price);
+        //uppdaterar variabel total enligt role villkor
+        let $role = $('.role').text();
+        console.log($role);
+
+        if ($role == "Användarroll: PREMIUM_CUSTOMER"){
+            $total = (Number($total) + Number($price)* 0.9);
+            $('#discount-msg').empty().append("Premium rabatt inkluderad!");
+        }
+        else
+            $total = Number($total) + Number($price);
         $('.total').empty().append($total);
 
     });
