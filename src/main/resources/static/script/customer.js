@@ -14,25 +14,21 @@ function addItemToCart(name, price) {
     // addera en rad till varukorg
     $('.cart-tabell').append(
         `<tr>
-            <td class='col-name'>${name}</td>
-            <td class='col-price'>${price} kr</td>
+            <td class='col-name'>` + name + `</td>
+            <td class='col-price'>` + price + ` kr</td>
         </tr>`);
-
-    //uppdaterar variabel total
-    $total = Number($total) + Number(price);
-    $('.total').empty().append($total);
 
     //uppdaterar variabel total enligt role villkor
     let $role = $('.role').text();
     console.log($role);
 
     if ($role == "Användarroll: PREMIUM_CUSTOMER"){
-        $total = (Number($total) + Number($price)* 0.9);
+        $total = (Number($total) + Number(price)* 0.9);
         $('#discount-msg').empty().append("Premium rabatt inkluderad!");
     }
     else
-        $total = Number($total) + Number($price);
-    $('.total').empty().append($total);
+        $total = Number($total) + Number(price);
+        $('.total').empty().append($total);
 }
 function searchProduct() {
     let $input = $('#search-input').val().trim();

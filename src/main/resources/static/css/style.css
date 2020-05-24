@@ -103,10 +103,7 @@ label.error {
     vertical-align: top;
 }
 
-.search-block {
-    display: inline-block;
-    width:  500px;
-}
+
 
 .logout-block {
     display: inline-block;
@@ -133,7 +130,7 @@ label.error {
 .found-product {
     border: 1px solid #c9c9c9;
     border-radius: 10px;
-    width: 300px;
+    width: 260px;
     margin: 10px 0 10px;
 }
 
@@ -155,5 +152,18 @@ label.error {
 .customer-page-header {
     display: inline-block;
     width:  500px;
+}
+
+.search-block {
+    display: block;
+    width:  500px;
+}
+
+#logout-btn {
+    margin-top: 8px;
+}
+
+#search-input {
+    width: 214px;
 }
 
