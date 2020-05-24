@@ -37,7 +37,7 @@ public class ProductController {
         return productService.findByName(productName);
     }
 
-    // // Visar produkter innehållandes {containing}
+    // Visar produkter innehållandes {containing}
     @RequestMapping(value = "/searchProductContaining/{containing}")
     public List<Product> findByNameContaining(@PathVariable String containing) {
         return productService.findByNameContaining(containing);

@@ -130,3 +130,25 @@ label.error {
     background-color: #dddddd;
 }
 
+.found-product {
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+    width: 300px;
+    margin: 10px 0 10px;
+}
+
+.found-product p {
+    margin: 4px;
+    padding: 0;
+}
+
+.found-product input {
+    margin-bottom: 4px;
+    margin-left: 4px;
+}
+
+.customer-page {
+    width: 500px;
+    margin-right: 0;
+}
+

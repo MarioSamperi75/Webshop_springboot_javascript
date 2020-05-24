@@ -1,61 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 <head>
     <title>Webshop_customer</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="../script/customer.js"></script>
+    <link rel="icon" href="#" type="image/x-icon">
 </head>
 
 
 <body>
-    <h1>KUNDSIDA</h1>
-    <!-- ************SEARCH*************-->
-
-        <div class="search-block">
-            <br/>
-            <label value="Sök vara: "/>
-            <input type="text"/>
-            <input type="submit" value="Sök"/>
-
-            <br/> <br/>
-            <label class="product-title-s"/>  <!--att koppla med product-->
-            <br/> <br/>
-            <label class="product-description-s"/> <!--att koppla med description-->
-            <input type="submit" value="Lägg i kundvagn"/>
-
-           <br/>
-        </div>
-
+    <h1 class="h1-header">KUNDSIDA</h1>
 
     <!-- ************USER*************-->
 
-        <div class="logout-block">
-
-
-        </div>
-
-
-
+    <div class="logout-block">
+    </div>
     <br/> <br/>
     <hr/>
     <br/> <br/>
+    <!-- ************SEARCH*************-->
 
+    <br/>
+    <div class="search-block">
+        <label for="search-input"></label>
+        <input type="text" id="search-input" placeholder="Sök vara.."/>
+        <input type="submit" id="search-btn" value="Sök"/>
 
+        <div class="found-products"></div>
+<!--        <br/> <br/>-->
+<!--        <label class="product-title-s"/>  &lt;!&ndash;att koppla med product&ndash;&gt;-->
+<!--        <br/> <br/>-->
+<!--        <label class="product-description-s"/> &lt;!&ndash;att koppla med description&ndash;&gt;-->
+<!--        <input type="submit" value="Lägg i kundvagn"/>-->
+
+    </div>
+    <br/>
 
 <!-- ************PRODUCT*************-->
     <div id="product-block" class="product-block">
     <!--det är javascript som fyller det-->
     </div>
 
-
     <!--*************CART************-->
     <div class="cart-block">
         <h1>Kundvagn</h1>
         <table class="cart-tabell">
-
-
         </table>
 
         <br/>
@@ -69,5 +60,4 @@
     </div>
 
 </body>
-
 </html>

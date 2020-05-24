@@ -2,6 +2,61 @@ let $username = document.location.search.replace(/^.*?\=/,'');
 let $productList = [];
 let $total = 0;
 
+function addItemToCart(name, price) {
+
+    // adderar till listan productname som vi ska skicka till controllern
+    $productList.push(name);
+
+    // addera en rad till varukorg
+    $('.cart-tabell').append(
+        `<tr>
+            <td class='col-name'>${name}</td>
+            <td class='col-price'>${price} kr</td>
+        </tr>`);
+
+    //uppdaterar variabel total
+    $total = Number($total) + Number(price);
+    $('.total').empty().append($total);
+}
+function searchProduct() {
+    let $input = $('#search-input').val().trim();
+    let $foundProducts = $('.found-products');
+    $.ajax({
+        url: `http://localhost:8080/searchProductContaining/${$input}`,
+        type: 'GET',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        success: function(products) {
+            $foundProducts.empty();
+            for (let i = 0; i < products.length; i++) {
+                console.log(products[i]);
+                $foundProducts.append(
+                    `<div class='found-product'>
+                         <p>${products[i].name}</p>
+                         <p>${products[i].description}</p>
+                         <p>${products[i].price} kr</p>
+                         <input class='addSearchedItem' type='submit' value='Lägg i kundvagnen'>
+                     </div>`
+                )}
+
+            // Lägger till eventlyssnare för varje hittat produkts knappar
+            let addSearchedItemBtns = document.querySelectorAll('.addSearchedItem');
+            addSearchedItemBtns.forEach(btn => {
+                btn.addEventListener('click', e => {
+                    // Ta ut namn och pris för hittat vara, för att kunna skicka vidare till addItemToCart()
+                    let productName = e.target.closest('.found-product').firstElementChild.innerHTML;
+                    let productPrice = e.target.previousElementSibling.innerHTML;
+                    productName.trim();
+                    productPrice = productPrice.trim().substr(0, productPrice.indexOf(' '));
+
+                    addItemToCart(productName, productPrice);
+                });
+            })
+        }
+    });
+}
+
 function loadProducts() {
     $.ajax({
         url: "http://localhost:8080/products"
@@ -19,13 +74,10 @@ function loadProducts() {
     });
 }
 
-
-
 function loadUser() {
     $.ajax({
         url: "http://localhost:8080//userByUsername/" + $username
     }).then(function(data) {
-
 
         $('.logout-block').empty().append("<label>Användarnamn: " + data.username + " <label/>" +
                                           "<br/><label>Användarroll: " + data.role +" <label/> <br/><br/><br/><br/>" +
@@ -45,9 +97,6 @@ function clearCart() {
 }
 
 $(document).ready(function() {
-    //tar url och replace allt utom argument med "". Det blir bara argument
-
-
 
     loadProducts();
     loadUser();
@@ -74,36 +123,19 @@ $(document).ready(function() {
 
             });
             clearCart();
-
         }
-
-
-
     });
 
 
     $("#product-block").on('click', ".add", function () {
         //fångar text med productnamnet
-        $name = $(this).siblings('label.name').text();
-        $price = $(this).siblings('label.price').text();
+        let $name = $(this).siblings('label.name').text();
+        let $price = $(this).siblings('label.price').text();
 
-
-        // adderar till listan productname som vi ska skicka till controllern
-        $productList.push($name)
-
-        // addera en rad till varukorg
-        $('.cart-tabell').append
-            ("<tr>" +
-                "<td class='col-name'>" + $name + "</td>" +
-                "<td class='col-price'>" + $price + " kr" +"</td>" +
-            "</tr>");
-
-        //uppdaterar variabel total
-        $total = Number($total) + Number($price);
-        $('.total').empty().append($total);
-
+        addItemToCart($name, $price)
     });
 
+    $('#search-btn').on('click', searchProduct);
 
 
 });
