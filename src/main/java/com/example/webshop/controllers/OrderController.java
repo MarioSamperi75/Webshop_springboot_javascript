@@ -1,7 +1,9 @@
 package com.example.webshop.controllers;
 
 
+import com.example.webshop.domain.Order_Item;
 import com.example.webshop.domain.Orders;
+import com.example.webshop.domain.Product;
 import com.example.webshop.domain.User;
 import com.example.webshop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,13 @@ public class OrderController {
     public List <Orders> findOrderByUsername(@PathVariable String username) {
         return orderService.findOrderByUsername(username);
     }
+
+    @RequestMapping(value = "/lastCart/{username}")
+    public List <Product> findLastCart(@PathVariable String username) {
+        return orderService.findLastCartByUsername(username);
+    }
+
+
 
     @RequestMapping(value = "/orderByID/{id}")
     public Orders findOrderByID(@PathVariable long id) {

@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 <head>
     <title>Webshop</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="../script/order.js"></script>
+    <link rel="icon" href="#" type="image/x-icon">
 </head>
 
 <body>
 
 
-    <div>
+
         <h1>Din beställning har bekräftats!</h1>
         <div>
         <h2>Innehåll:</h2>
-            <table class="cart-tabell">
-                <tbody>
-                <tr>
-                    <!-- 2 <td></td> att fylla genom js och styla med css :1name 2price-->
-                </tr>
-                </tbody>
+
+            <table id="cart-tabell" class="cart-tabell">
+
             </table>
+
         <br/><br/>
-            <label value="Total:"/> <label/> <!-- kopplat med rätta event-->
-            <label value=" (Premium rabatt inkluderad!)" rendered="false"/> <!-- vad blir det?-->
+
+            <label >Total: </label>
+            <label id="total-orderSida"></label> kr
+            <label id="msg-orderSida"> </label>
             <br><br>
-            <input type="submit" value = "Tillbaka till shoppen!"/> <!-- kopplat med rätta event-->
+            <button id="back" type="submit">Tillbaka till shoppen!</button>
         </div>
-    </div>
+
+
+
+
+
 </body>
 </html>

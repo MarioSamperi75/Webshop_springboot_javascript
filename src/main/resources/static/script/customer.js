@@ -1,6 +1,10 @@
+//tar url och replace allt utom argument med "". Det blir bara argument
 let $username = document.location.search.replace(/^.*?\=/,'');
 let $productList = [];
 let $total = 0;
+let $rabatt = "";
+
+
 
 function addItemToCart(name, price) {
 
@@ -16,6 +20,18 @@ function addItemToCart(name, price) {
 
     //uppdaterar variabel total
     $total = Number($total) + Number(price);
+    $('.total').empty().append($total);
+
+    //uppdaterar variabel total enligt role villkor
+    let $role = $('.role').text();
+    console.log($role);
+
+    if ($role == "Användarroll: PREMIUM_CUSTOMER"){
+        $total = (Number($total) + Number($price)* 0.9);
+        $('#discount-msg').empty().append("Premium rabatt inkluderad!");
+    }
+    else
+        $total = Number($total) + Number($price);
     $('.total').empty().append($total);
 }
 function searchProduct() {
@@ -79,9 +95,9 @@ function loadUser() {
         url: "http://localhost:8080//userByUsername/" + $username
     }).then(function(data) {
 
-        $('.logout-block').empty().append("<label>Användarnamn: " + data.username + " <label/>" +
-                                          "<br/><label>Användarroll: " + data.role +" <label/> <br/><br/><br/><br/>" +
-                                          "<button class = 'logout-btn'>Logga ut</button>");
+
+        $('#logout-block').empty().append("<label>Användarnamn: " + data.username + "</label>" +
+                                          "<br/><label class='role'>Användarroll: " + data.role +"</label> " );
 
         console.log("data:  " + data.username + " " + data.role);
     });
@@ -93,6 +109,14 @@ function clearCart() {
     $('.cart-tabell').empty();
     $productList = [];
     $('.total').empty().append($total);
+
+}
+
+
+function logOut() {
+    clearCart();
+    window.location.href = "../index.html";
+
 
 }
 
@@ -120,9 +144,19 @@ $(document).ready(function() {
                         $('.result-message').empty().append("Ooops that's not correct! But keep trying!");
                     }
                 }
-
             });
-            clearCart();
+
+            //user rabatt msg som villkor: om det finns skickar premium som url parameter, annars customer
+            // för lätt att hacka???
+            $rabatt = $('#discount-msg');
+            if ($rabatt.text()=="") {
+                clearCart();
+                window.location.href = "order.html" + "?username=" + $username+ "-"
+            } else {
+                clearCart();
+                //" ":lätt att hacka ändå men om jag skriver typ "premium" bli varsågod!!!
+                window.location.href = "order.html" + "?username=" + $username + "_";
+            }
         }
     });
 
@@ -135,7 +169,14 @@ $(document).ready(function() {
         addItemToCart($name, $price)
     });
 
-    $('#search-btn').on('click', searchProduct);
+    $("#clear").on('click', function () {
+        clearCart();
+    });
 
+    $("#logout-btn").on('click', function () {
+        logOut();
+    });
+
+    $('#search-btn').on('click', searchProduct);
 
 });

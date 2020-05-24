@@ -18,6 +18,11 @@
     <!-- ************USER*************-->
 
     <div class="logout-block">
+        <div id="logout-block">
+            <!--det är javascript som fyller det-->
+        </div>
+        <br><br><br>
+        <button  type='submit' id='logout-btn'>Logga ut</button>
     </div>
 
     <!-- ************SEARCH*************-->
@@ -46,12 +51,12 @@
 
         <br/>
         <span>
-        <label>Total: </label>  <label class="total"></label>
+        <label>Total: </label>  <label class="total"></label> kr
         </span>
-        <label value=" (Premium rabatt inkluderad!)" rendered="false"/> <!-- vad blir det?-->
+        <label id ="discount-msg"></label>
         <br/>
         <button id="buy" type="submit">Köp</button>
-        <input type="submit" value = "Töm varukorg"/> <!-- att koppla med rätta event-->
+        <button id = "clear" type="submit" >Töm varukorg</button>
     </div>
 
 </body>
