@@ -152,3 +152,8 @@ label.error {
     margin-right: 0;
 }
 
+.customer-page-header {
+    display: inline-block;
+    width:  500px;
+}
+
