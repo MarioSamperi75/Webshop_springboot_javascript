@@ -10,10 +10,11 @@ function loadCustomers() {
                     '<td>' + data[i].lastname + '</td>' +
                     '<td>' + data[i].address + '</td>' +
                     '<td>' + data[i].email + '</td>' +
-                    '<td> <button onclick="listOrdersOf(this.textContent)">' + data[i].username +  '</button> </td>' +
+                    '<td>' + data[i].username + '</td>' +
                     '<td>' + data[i].password + '</td>' +
                     '<td>' + data[i].role + '</td>' +
                     '<td>' + data[i].totalAmount + '</td>' +
+                    '<td> <button onclick="listOrdersOf(\'' + data[i].username + '\')"> Se Beställningar </button> </td>' +
                     '</tr>'
                 );
             }
@@ -28,6 +29,7 @@ function listOrdersOf(customer) {
         url: "http://localhost:8080//orderByUsername/" + customer
     }).then(function(data) {
         $('#products').empty();
+        $("#product-tag").empty();
         $('#ordered-by').empty().append("Beställningar - " + customer)
         $('#orders').empty().append(
             '<tr>' +
@@ -39,7 +41,7 @@ function listOrdersOf(customer) {
             for(let i = 0; i< data.length; i++) {
                 $('#orders').append(
                     '<tr>' +
-                        '<td> <button name="' + data[i].id + '" onclick = "listProductsOf(this.name, this.textContent)"> Order ' + generateOrderNumb(i) + '</button> </td>' +
+                        '<td> <button onclick = "listProductsOf(this.textContent,\'' + data[i].id + '\')"> Order ' + generateOrderNumb(i) + '</button> </td>' +
                         '<td>' + data[i].id + '</td>' +
                     '</tr>'
                 );
@@ -53,7 +55,7 @@ function generateOrderNumb(numb){
     return numb + 1;
 }
 
-function listProductsOf(orderID, orderName){
+function listProductsOf(orderName, orderID){
     $.ajax({
         url: "http://localhost:8080//orderByID/" + orderID
     }).then(function(data) {
