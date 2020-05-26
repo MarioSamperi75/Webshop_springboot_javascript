@@ -17,5 +17,4 @@ public interface OrderService {
 
     List <Product> findLastCartByUsername (String username);
 
-
 }

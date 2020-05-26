@@ -41,8 +41,6 @@ public class OrderController {
         return orderService.findLastCartByUsername(username);
     }
 
-
-
     @RequestMapping(value = "/orderByID/{id}")
     public Orders findOrderByID(@PathVariable long id) {
         return orderService.findOrderByID(id);

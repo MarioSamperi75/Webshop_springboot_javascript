@@ -11,84 +11,30 @@
 <body>
     <h1>ADMINSIDA</h1>
     <div>
-        <h2>Users</h2>
+        <button  type='submit' id = "logout-admin">Logga ut</button> <br> <br>
+        <hr>
+    </div>
+    <div>
+        <h2>Användare</h2>
         <table class = "admin-table" id = "admin-users">
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>Förnamn</th>
+                <th>Efternamn</th>
                 <th>Address</th>
                 <th>Email</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Totalamount</th>
+                <th>Användarnamn</th>
+                <th>Lösenord</th>
+                <th>Roll</th>
+                <th>Totalt handlat för</th>
             </tr>
         </table>
     </div>
     <div>
-        <br> <h2>Orders</h2>
+        <br> <h2 id = "ordered-by"></h2>
         <table class = "admin-table" id = "orders"></table>
     </div>
     <div>
-        <br> <h2>Products</h2>
+        <br> <h2 id = "product-tag"></h2>
         <table class = "admin-table" id = "products"></table>
     </div>
 </body>
-
-<!--
-<h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Admin</title>
-</h:head>
-<h:body>
-    <h:outputStylesheet library="css" name="style.css" />
-    <h1>ADMINSIDA</h1>
-    <h:form>
-        <h2> Användare </h2>
-        <h:dataTable styleClass="cart-tabell" value="#{adminController.getUsers()}" var="user">
-            <h:column>
-                <h:commandButton id="customer" value="#{user.username}" action="#{adminController.getUserInfo(user.username)}"/>
-            </h:column>
-        </h:dataTable>
-
-        <br/>
-        <h2> Användaruppgifter </h2>
-        <br/>
-        <h:outputLabel value="Namn:  #{adminController.getSelectedFirstName()}"/>
-        <br/>
-        <h:outputLabel value="Efternamn:  #{adminController.getSelectedLastName()}"/>
-        <br/>
-        <h:outputLabel value="Adress:  #{adminController.getSelectedAddress()}"/>
-        <br/>
-        <h:outputLabel value="Användarnamn:  #{adminController.getSelectedUserUsername()}"/>
-        <br/>
-        <h:outputLabel value="Lösenord: #{adminController.getSelectedUserPassword()}"/>
-        <br/>
-        <h:outputLabel value="E-mail:  #{adminController.getSelectedEmail()}"/>
-        <br/>
-        <h:outputLabel value="Roll: #{adminController.getSelectedUserRole()}"/>
-
-        <br/> <br/>
-        <h2> Beställningar </h2>
-        <h:dataTable styleClass="cart-tabell" value="#{adminController.getOrders()}" var="orders" rendered="#{adminController.getRenderOrders()}">
-            <h:column>
-                <h:commandButton id="order" value="Beställning #{adminController.getOrderCounter()}" action ="#{adminController.setProducts(orders.getProductList())}"/>
-            </h:column>
-        </h:dataTable>
-
-        <br/>
-        <h2> Beställningsinnehåll </h2>
-        <h:dataTable styleClass="cart-tabell" value="#{adminController.getProducts()}" var="product" rendered="#{adminController.getRenderOrders()}">
-            <h:column>
-                <h:outputText value = "#{product.getName()}"/>
-            </h:column>
-            <h:column>
-                <h:outputText value = "#{product.getPrice()} kr"/>
-            </h:column>
-        </h:dataTable>
-        <br/>
-        <h:commandButton value = "Logga ut" action="#{adminController.logout()}"/>
-    </h:form>
-</h:body>
-</html>
--->
