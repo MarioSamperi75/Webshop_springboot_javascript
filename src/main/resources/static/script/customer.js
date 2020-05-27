@@ -142,16 +142,15 @@ $(document).ready(function() {
                 }
             });
 
-            //user rabatt msg som villkor: om det finns skickar premium som url parameter, annars customer
-            // för lätt att hacka???
+            //  user rabatt msg som villkor: om det finns skickar premium som url parameter, annars customer
+            //  url parameter får en bokstav: C ska tolkas som Customer, P som Premium_Customer
             $rabatt = $('#discount-msg');
             if ($rabatt.text()=="") {
                 clearCart();
-                window.location.href = "order.html" + "?username=" + $username+ "-"
+                window.location.href = "order.html" + "?username=" + $username+ "C"
             } else {
                 clearCart();
-                //" ":lätt att hacka ändå men om jag skriver typ "premium" bli varsågod!!!
-                window.location.href = "order.html" + "?username=" + $username + "_";
+                window.location.href = "order.html" + "?username=" + $username + "P";
             }
         }
     });

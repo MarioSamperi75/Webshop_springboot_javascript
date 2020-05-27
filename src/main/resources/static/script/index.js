@@ -3,7 +3,7 @@
 
 function getCustomer() {
     $.ajax({
-        url: "http://localhost:8080//userByUsername/" + $username
+        url: "http://localhost:8080//userByUsername/" + username
     }).then(function(data) {
         $role= data.role;
         console.log($role);
