@@ -68,48 +68,61 @@ public class RegisterServiceImpl implements RegisterService {
         return response;
     }
 
-   @Transactional
+    @Transactional
     public Response addOrderItemLista (String username,  List<String> productListString, double total) {
-       //andas djupt... gå!!!
-       //Description: fångar obejkt som böhövs, skapar listor som behövs, kopplar listor med objekt,
-       // sparar order, uppdate user total amoun (kan man dela i flera metoder?)
+        //andas djupt... gå!!!
 
-       //get motsvarade user o skapa en productLista att fylla i
+        // ATT SKAPA EN ORDERS INNEBÄR:
+
+        //0. Man måste ha objekt user och productsList (Product,  inte bara namn!) och total (titta parametrar)
+        //1. Skapa en tom Orders
+        //2 .skapa en tom ORDER ITEMS list
+        //3. skapa en eller flera ORDER ITEMS (Orders + Product + int quantity)
+        //4  fylla ORDER ITEMS list
+        //5. Set user och OrderItems List i Orders som var tom
+        //6. Ta och uppdatera Users ordersList (lista med alla beställningar)
+        //7. spara order
+        //8. uppdate user total amoun, uppdate role (eventuellt)  (bättre att dela i flera metoder)
+
+        //----------------------
+
+        //0. get motsvarade user och skapa en productList att fylla i
         User user = userService.findByUsername(username);
         List<Product> productList = new ArrayList<>();
 
-        //uppdate total amount, eventuellt role, och spara user
-        log.info("user : " +user.getUsername());
-        user.setTotalAmount(user.getTotalAmount() + total);
 
-        //Premium villkor för getTotalAmount (för den nya TotalAmount)!
-        if (user.getTotalAmount()>=500)
-            user.setRole(Role.PREMIUM_CUSTOMER);
-
-        userRepository.save(user);
-
-        //gå genom list med productnamn och skapa en produktList (objekt product inte bara namn)
+        //0. gå genom list med productnamn och skapa en productList (objekt product inte bara namn)
         for (int i=0; i<productListString.size(); i++){
             productList.add(productService.findByName(productListString.get(i)));
         }
 
-        //tar lista med alla Orders (Orders = user + inköpslista) skapa ny inköpslista, skapa en ny Orders
-        List<Orders> ordersList = user.getOrdersList();
-        List<Order_Item> order_itemList = new ArrayList<>();
+        //1. skapa en ny Orders, ta listan med alla Orders (Orders = user + inköpslista)
         Orders orders = new Orders();
 
-        //går igenom product lista tar varje product och skapar alla orderitems (order +product + quantity)
-        //stoppar allt det i en order_itemList (inköpslista)
+        //2. skapa ny inköpslista (Order_ItemList)
+        List<Order_Item> order_itemList = new ArrayList<>();
+
+        //3.4. går igenom productList tar varje product och skapar alla orderitems (order +product + quantity)
+        //stoppar alla order_items i order_itemList
         for (int i=0; i < productList.size(); i++)
             order_itemList.add(new Order_Item(orders, productList.get(i), 1));
 
-        //setters för order som skapade med costructor()
+        //5. setters för att fylla den tomma Orders och uppdatera Users orderlist
         orders.setUser(user);
         orders.setOrder_ItemList(order_itemList);
+
+        //6. Ta och uppdatera Users ordersList (lista med alla beställningar)
+        List<Orders> ordersList = user.getOrdersList();
         ordersList.add(orders);
 
-        //sparar order (som är kopplad med user)
+        //7. sparar order (som är kopplad med user)
         orderRepository.save(orders);
+
+        //8. uppdate total amount, eventuellt role (Premium villkor!), och spara user
+        user.setTotalAmount(user.getTotalAmount() + total);
+        if (user.getTotalAmount()>=500)
+            user.setRole(Role.PREMIUM_CUSTOMER);
+        userRepository.save(user);
 
         Response response = new Response("ADDED", true);
         return response;

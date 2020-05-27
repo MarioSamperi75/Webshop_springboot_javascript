@@ -1,15 +1,3 @@
-
-/*let $role = null;
-
-function getCustomer() {
-    $.ajax({
-        url: "http://localhost:8080//userByUsername/" + $username
-    }).then(function(data) {
-        $role= data.role;
-        console.log($role);
-    });
-}*/
-
 function verifyLogin() {
     let username = $('#usernameInput').val().toLowerCase();
     let password = $('#passwordInput').val();
@@ -45,7 +33,6 @@ function verifyLogin() {
         },
         error : function(e) {
             console.log('ERROR: ' + e)
-            // href="index.html //redirect:/
         }
     });
 }
@@ -54,14 +41,5 @@ $(document).ready(function() {
 
     $('#login').on('click', verifyLogin);
 
-
-    // $('#login').on('click', function () {
-    //     let  $username= $("#usernameInput").val();
-    //     if ($username == "admin")  // det kommer att bli role == role.ADMIN
-    //         window.location.href = "../templates/admin.html" + "?username=" + $username;
-    //     else
-    //         window.location.href = "../templates/customer.html" + "?username=" + $username;
-    //
-    // });
 });
 
