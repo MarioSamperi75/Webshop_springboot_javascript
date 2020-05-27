@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUsername(String username) {
-        User result = userRepository.findByUsername(username);
+        User result = userRepository.findByUsernameIgnoreCase(username);
         log.info("findByUsername " + result);
         return result;
     }
@@ -35,17 +36,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean verifyUserAndPass(User user) {
+    public Optional<User> verifyUserAndPass(User user) {
         List<User> users = userRepository.findAll();
 
         for (User userInDB : users) {
             if(user.getUsername().equalsIgnoreCase(userInDB.getUsername())) {
                 if(user.getPassword().equals(userInDB.getPassword())) {
-                    return true;
+                    return Optional.of(userInDB);
                 }
             }
         }
-        return false;
+        return Optional.empty();
     }
 
 }

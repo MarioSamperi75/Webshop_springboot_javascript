@@ -2,6 +2,7 @@ package com.example.webshop.controllers;
 
 import com.example.webshop.domain.InputPack;
 import com.example.webshop.domain.Response;
+import com.example.webshop.domain.Role;
 import com.example.webshop.domain.User;
 import com.example.webshop.service.ProductServiceImpl;
 import com.example.webshop.service.RegisterService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -47,17 +49,23 @@ public class UserController {
         return  userService.findAllUsers();
     }
 
-    // TODO: 2020-05-19 Se över login funktionen och se vad den behöver returnera
     @PostMapping("/login")
     public Response login(@RequestBody User user) {
-        Response response=new Response("Not logged in",false);
-        log.info("user: " + user);
-        boolean validUser = userService.verifyUserAndPass(user);
-        if(validUser) {
+        Response response = new Response("Not logged in",false);
+        Optional<User> validUser = userService.verifyUserAndPass(user);
+
+        validUser.ifPresent(theUser -> {
             response.setStatus(true);
-            response.setMessage("Logged in!");
-        }
+            if (theUser.getRole() != Role.ADMIN) {
+                response.setMessage("Customer logged in");
+            } else {
+                response.setMessage("Admin logged in");
+            }
+            log.info("validUser: " + validUser);
+        });
+
         log.info("response -----> " + response.getMessage());
+        log.info("response -----> " + response.getStatus());
         return response;
     }
 
@@ -69,18 +77,7 @@ public class UserController {
         double total = inputPack.getTotal();
         registerService.addOrderItemLista(username, productList, total);
 
-
-
-
-
         Response response=new Response("Order Added",false);
-
-
-        // TODO: 2020-05-17 if satsen kollar om newUser.get.. inte är null.
-        //  Om användaren submittar ett tomt värde så blir newUser.get.. = "", dvs en tom String.
-        //  if satsen kommer därför aldrig gå till else
-
-
         return response;
     }
 

@@ -22,7 +22,7 @@ function addItemToCart(name, price) {
     let $role = $('.role').text();
     console.log($role);
 
-    if ($role == "Användarroll: PREMIUM_CUSTOMER"){
+    if ($role === "Användarroll: PREMIUM_CUSTOMER"){
         $total = (Number($total) + Number(price)* 0.9);
         $('#discount-msg').empty().append("Premium rabatt inkluderad!");
     }
@@ -125,7 +125,6 @@ $(document).ready(function() {
         if  ($total!=0) {           //inte skicka en tom order!!!)
             var data = {username: $username, productList: $productList, total: $total}
             // skicka inputpaket(data object)
-            // todo: beräkna och lägga till total i paketet
             $.ajax({
                 url: 'http://localhost:8080/user/addNewOrder',
                 type: 'POST',

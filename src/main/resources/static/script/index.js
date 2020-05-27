@@ -10,9 +10,8 @@ function getCustomer() {
     });
 }*/
 
-
 function verifyLogin() {
-    let username = $('#usernameInput').val();
+    let username = $('#usernameInput').val().toLowerCase();
     let password = $('#passwordInput').val();
     console.log('username: ' + username);
     console.log('password: ' + password);
@@ -27,7 +26,22 @@ function verifyLogin() {
         dataType: "json",
         async: false,
         success: function(result){
-            console.log('success?? result: ' + result);
+
+            switch(result.message) {
+                case "Admin logged in":
+                    window.location.href = "../templates/admin.html" + "?username=" + username;
+                    console.log("Admin logged in");
+                    break;
+                case "Customer logged in":
+                    window.location.href = "../templates/customer.html" + "?username=" + username;
+                    console.log("Customer logged in");
+                    break;
+                default:
+                    $('.login-message').empty().append(
+                        `<p>Felaktigt användarnamn och/eller lösenord</p>`
+                    );
+                    break;
+            }
         },
         error : function(e) {
             console.log('ERROR: ' + e)
@@ -38,15 +52,16 @@ function verifyLogin() {
 
 $(document).ready(function() {
 
+    $('#login').on('click', verifyLogin);
 
 
-    $('#login').on('click', function () {
-        let  $username= $("#usernameInput").val();
-        if ($username == "admin")  // det kommer att bli role == role.ADMIN
-            window.location.href = "../templates/admin.html" + "?username=" + $username;
-        else
-            window.location.href = "../templates/customer.html" + "?username=" + $username;
-
-    });
+    // $('#login').on('click', function () {
+    //     let  $username= $("#usernameInput").val();
+    //     if ($username == "admin")  // det kommer att bli role == role.ADMIN
+    //         window.location.href = "../templates/admin.html" + "?username=" + $username;
+    //     else
+    //         window.location.href = "../templates/customer.html" + "?username=" + $username;
+    //
+    // });
 });
 

@@ -32,7 +32,7 @@ public class OrderServiceImpl implements OrderService {
     public List <Orders> findOrderByUsername(String username) {
         List <Orders> temp = new ArrayList<>();
         for(Orders orders : orderRepository.findAll()) {
-            if(orders.getUser().getUsername().equals(username)) {
+            if(orders.getUser().getUsername().equalsIgnoreCase(username)) {
                temp.add(orders);
             }
         }
