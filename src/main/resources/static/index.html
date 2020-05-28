@@ -12,35 +12,35 @@
 
 <body>
     <div>
-    <br/>
-    <img alt="Shop Logo, Chips" src="Images/logo.png" class="logo"/>
-    <br/>
-    <div class="form">
+        <br/>
+        <img alt="Shop Logo, Chips" src="Images/logo.png" class="logo"/>
+        <br/>
+        <div class="form">
 
-        <div class="user-password">
-            <label class="username-label" for="usernameInput">Användarnamn:</label>
-            <input type="text" id="usernameInput" class="username-value"/>
+            <div class="user-password">
+                <label class="username-label" for="usernameInput">Användarnamn:</label>
+                <input type="text" id="usernameInput" class="username-value"/>
+                <br/>
+
+                <label class="password-label" for="passwordInput">Lösenord:</label>
+                <input type="password" id="passwordInput" class="password-value"/>
+            </div>
             <br/>
 
-            <label class="password-label" for="passwordInput">Lösenord:</label>
-            <input type="password" id="passwordInput" class="password-value"/>
+            <div class="index-buttons">
+
+                    <input type="submit" id="login" value="Logga in" class="login-register-btn"/>
+
+                <a href="templates/register.html">
+                    <input type="submit"  id="register" value="Registrera" class="login-register-btn"/>
+                </a>
+
+            </div>
+            <br/>
+
+            <div class="login-message"></div>
+            <br/>
         </div>
-        <br/>
-
-        <div class="index-buttons">
-
-                <input type="submit" id="login" value="Logga in" class="login-register-btn"/>
-
-            <a href="templates/register.html">
-                <input type="submit"  id="register" value="Registrera" class="login-register-btn"/>
-            </a>
-
-        </div>
-        <br/>
-
-        <div class="login-message"></div>
-        <br/>
-    </div>
     </div>
 </body>
 </html>

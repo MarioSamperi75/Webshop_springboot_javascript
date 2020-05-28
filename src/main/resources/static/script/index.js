@@ -1,10 +1,7 @@
 function verifyLogin() {
     let username = $('#usernameInput').val().toLowerCase();
     let password = $('#passwordInput').val();
-    console.log('username: ' + username);
-    console.log('password: ' + password);
 
-    // let payload = {username, password}
     let payload = {'username': username, 'password': password}
     $.ajax({
         url: 'http://localhost:8080/login',

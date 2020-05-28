@@ -45,19 +45,14 @@ function loadLastCart() {
     });
 }
 
-
-
 $(document).ready(function() {
 
     getCustomer();
     loadLastCart();
 
-
-
     $("#back").on('click', function () {
         window.location.href = "customer.html" + "?username=" + $username;
 
     });
-
 
 });

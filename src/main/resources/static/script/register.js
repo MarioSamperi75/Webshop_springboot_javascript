@@ -58,7 +58,6 @@ $(document).ready(function() {
         }
     })
 
-
     $("#register-form").submit(function( event ) {
 
         // Don't submit the form normally

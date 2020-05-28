@@ -91,7 +91,6 @@ function loadUser() {
         url: "http://localhost:8080//userByUsername/" + $username
     }).then(function(data) {
 
-
         $('#logout-block').empty().append("<label>Användarnamn: " + data.username + "</label>" +
                                           "<br/><label class='role'>Användarroll: " + data.role +"</label> " );
 
@@ -112,8 +111,6 @@ function clearCart() {
 function logOut() {
     clearCart();
     window.location.href = "../index.html";
-
-
 }
 
 $(document).ready(function() {
