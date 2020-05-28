@@ -38,17 +38,20 @@ public class UserController {
         return "hello User";
     }
 
-    //----------------Visa User från DB  genom Username
+    // Returnerar en User från DB genom Username
     @RequestMapping(value = "/userByUsername/{username}")
     public User findUserbyUsername(@PathVariable String username) {
         return  userService.findByUsername(username);
     }
 
+    // Returnerar en lista med alla Users från DB
     @RequestMapping(value = "/users")
     public List<User> findAllUsers() {
         return  userService.findAllUsers();
     }
 
+    // Jämför en "User" med enbart username och password mot befintliga users i DB.
+    // Returnerar ett response om en befintlig User matchade den inskickade.
     @PostMapping("/login")
     public Response login(@RequestBody User user) {
         Response response = new Response("Not logged in",false);
@@ -63,9 +66,6 @@ public class UserController {
             }
             log.info("validUser: " + validUser);
         });
-
-        log.info("response -----> " + response.getMessage());
-        log.info("response -----> " + response.getStatus());
         return response;
     }
 
