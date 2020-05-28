@@ -69,7 +69,7 @@ public class UserController {
         return response;
     }
 
-    //flytta till register?
+    // vi använder ett dataobjekt (inputPack) som tolkar data kommer från javascript (customer.js, funktion "buy")
     @PostMapping("/user/addNewOrder")
     public Response addNewOrder(@RequestBody InputPack inputPack) {
         String username = inputPack.getUsername();

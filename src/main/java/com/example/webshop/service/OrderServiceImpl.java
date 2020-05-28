@@ -39,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
         return temp;
     }
 
-    //från en order, tar vi sista ordetItemlista och extraherar en lista med product :)
+    //från en order, tar vi sista ordetItemlista och extraherar en lista med product
     @Override
     public List <Product> findLastCartByUsername (String username){
         int size = findOrderByUsername(username).size() -1;

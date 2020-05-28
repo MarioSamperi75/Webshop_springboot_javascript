@@ -123,12 +123,12 @@ $(document).ready(function() {
 
     $("#buy").on('click', function () {
         if  ($total!=0) {           //inte skicka en tom order!!!)
-            var data = {username: $username, productList: $productList, total: $total}
+            var inputPack = {username: $username, productList: $productList, total: $total}
             // skicka inputpaket(data object)
             $.ajax({
                 url: 'http://localhost:8080/user/addNewOrder',
                 type: 'POST',
-                data: JSON.stringify(data),
+                data: JSON.stringify(inputPack),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 async: false,

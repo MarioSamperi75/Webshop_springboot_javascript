@@ -21,7 +21,7 @@ public class RegisterController {
     public RegisterController(RegisterServiceImpl registerService) {
         this.registerService = registerService;
     }
-    private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
+    //private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     @RequestMapping("/register")
     public String index() {
@@ -30,7 +30,6 @@ public class RegisterController {
 
     @PostMapping("/user/add")
     public Response addUser(@RequestBody User newUser) {
-        log.info("user från registerController" + newUser);
         return registerService.addUser(newUser);
     }
 

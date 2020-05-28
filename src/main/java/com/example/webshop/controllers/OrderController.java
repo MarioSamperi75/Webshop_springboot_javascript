@@ -36,6 +36,7 @@ public class OrderController {
         return orderService.findOrderByUsername(username);
     }
 
+    // Vi använder det i bekräftelse sidan
     @RequestMapping(value = "/lastCart/{username}")
     public List <Product> findLastCart(@PathVariable String username) {
         return orderService.findLastCartByUsername(username);
